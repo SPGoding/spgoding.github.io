@@ -26,7 +26,7 @@ It also contains a list of known community Simplified Chinese translations for e
 
 SPGoding has a self-hosted [Weblate][weblate] instance. [Check it out][l10n].
 
-If you want to host your project's localization on this website for free, please [contact][contact] SPGoding. Generally any open source projects related to Minecraft are allowed.
+If you want to host your project's localization on this website for free, please [contact][contact] SPGoding. Generally, any open source projects related to Minecraft are allowed.
 
 # Posts
 
