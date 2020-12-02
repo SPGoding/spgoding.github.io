@@ -1,0 +1,15 @@
+title: spgoding.com
+description: >-
+  SPGoding's personal website.
+baseurl: ""
+url: https://spgoding.com
+github_username: SPGoding
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-redirect-from
+
+exclude:
+  - .github
+  - vendor
