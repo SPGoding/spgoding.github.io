@@ -7,25 +7,27 @@ list_title: ' '
 
 SPGoding is some random human-alike thing that happens to know a little bit about TypeScript, NodeJS, ES6, word combinations that don't make any sense but recruiters love to see, and Kotlin.
 
-# Project Compass
+# Open Source Projects
 
 ## SPYGlass
 
-SPYGlass is a set of development tools for vanilla Minecraft: Java Edition content creators. [Learn more][spyglass].
+SPYGlass is a set of development tools for vanilla Minecraft: Java Edition data pack creators. [Learn more][spyglass].
 
 ## SPU
 
 [SPU][spu] is an online tool for updating old Minecraft: Java Edition commands to the 1.14 format. [Check it out][spu].
 
-This tool is no longer maintained. SPYGlass might be a good alternative that provides code actions to help you update your data pack.
+This tool is no longer maintained. SPYGlass might be a good alternative that provides code actions to help you update your data packs.
 
 ## SPX
 
 [SPX][spx] is an online tool that can convert [Minecraft.net][minecraftdotnet] blog articles to [BBCode][bbcode]. [Check it out][spx].
 
-It also contains a list of known Simplified Chinese translations for existing articles maintained by the community. 
+It also contains a list of Simplified Chinese translations contributed by Chinese players. Unfortunately, the community behind it is no longer active for obvious reasons.
 
-# Website Index
+⚠ Warning: the main interface of this tool is not in English.
+
+# Self-Hosted Websites
 
 ## Localization
 
@@ -35,7 +37,9 @@ If you want to host your project's localization on this website for free, please
 
 ## Search Engine
 
-SPGoding also has a self-hosted [Searx][searx] instance. If you trust me, [check it out][search].
+SPGoding also has a self-hosted [Searx][searx] instance. If you're brave enough to hand all your search history and privacy to me, [check it out][searx].
+
+You probably won't be tracked, but I can't guarantee anything.
 
 # Posts
 
