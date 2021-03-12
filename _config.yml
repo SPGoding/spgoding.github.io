@@ -13,3 +13,4 @@ plugins:
 exclude:
   - .github
   - vendor
+  - _posts/**/*.png

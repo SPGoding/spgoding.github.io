@@ -5,54 +5,96 @@ date: 2021-03-12 10:35:00 -0600
 categories: translation
 ---
 
+- [原版着色器指导](#原版着色器指导)
+- [前言](#前言)
+- [梗概：着色器的组成部分](#梗概着色器的组成部分)
+- [开始](#开始)
+- [创建一个后处理 JSON](#创建一个后处理-json)
+    - [Targets](#targets)
+    - [Passes](#passes)
+        - [Passes.Auxtargets](#passesauxtargets)
+        - [Passes.Uniforms](#passesuniforms)
+    - [可运作的示例](#可运作的示例)
+- [创建一个「着色器程序」JSON](#创建一个着色器程序json)
+    - [可运作的示例](#可运作的示例-1)
+- [GLSL 基础](#glsl-基础)
+    - [数据类型](#数据类型)
+    - [着色器程序工作流程](#着色器程序工作流程)
+    - [属性、全局量、传递变量](#属性全局量传递变量)
+- [编写一个顶点着色器](#编写一个顶点着色器)
+    - [可运作的示例](#可运作的示例-2)
+- [编写一个片段着色器](#编写一个片段着色器)
+    - [Sampler](#sampler)
+    - [可运作的示例](#可运作的示例-3)
+- [技巧与难题](#技巧与难题)
+    - [发光颜色](#发光颜色)
+    - [阴影](#阴影)
+    - [编译器优化问题](#编译器优化问题)
+    - [跨帧储存信息](#跨帧储存信息)
+    - [着色器启用顺序](#着色器启用顺序)
+    - [Blit 缩放问题](#blit-缩放问题)
+    - [读取玩家输入](#读取玩家输入)
+    - [旁观死亡技巧](#旁观死亡技巧)
+- [工具和参考](#工具和参考)
+    - [GLSL](#glsl)
+    - [SpiderEye](#spidereye)
+    - [着色器示例](#着色器示例)
+
 # 原版着色器指导
 
 - 原　文: [Guide to vanilla shaders](https://docs.google.com/document/d/15TOAOVLgSNEoHGzpNlkez5cryH3hFF3awXL5Py81EMk/edit#)
-- 原作者: SirBenet, with input from Godlander and Onnowhere
-- 译　文: [指导到香草着色器](https://github.com/SPGoding/mcbbs-threads/blob/master/translations/guide-to-vanilla-shaders.md)
-- 译　者: SPGoding
+- 原作者: SirBenet
 - 鸣　谢: 森林蝙蝠 - 提供了各种专业名词的专业机翻
-- 截止翻译时，原文最后更新: 2019-09-22 for Minecraft 1.14.4
+- 截止翻译时，原文最后更新: 2021-03-10 for Minecraft 21w10a (WIP)
 
 **已经原作者授权**
+
 ![image.png](https://i.loli.net/2019/09/23/pR95MBJQdq7Ooth.png)
 
 # 前言
 
-原版 Minecraft 有着许多的 GLSL（OpenGL Shading Language）着色器。这些着色器以前能通过选项中的「Super Secret Settings」来启用，但现在只在以下情景有应用了：
-- 以特定生物的视角旁观时（苦力怕、蜘蛛、末影人）
-- 屏幕中有具有发光状态效果的实体时
-
-着色器可以直接通过资源包更改，进而嵌在地图里，或者是在玩家进入服务器时自动启用。
-
-原版的着色器系统有一些问题和限制。它们可以为原版地图带来很多新的可能性，但是并不能完全替代由模组带来的更棒的光影包。
-
-## 能做到什么
-
-着色器会在游戏已经渲染好画面以后起效。它们能够接受整个屏幕的像素作为输入，然后逐像素地输出。除了一些有限的特例以外，着色器所能接受到的唯一数据就是正显示在屏幕上的内容。
+原版 Minecraft 有着许多 GLSL 着色器。这些着色器可以直接通过资源包更改，进而嵌在地图里，或者是在玩家进入服务器时自动启用。
 
 着色器以 OpenGL Shading Language（GLSL）语言编写，这是一个类似 C 的语言，支持浮点数、向量、矩阵，以及函数、条件、循环以及其他各种你能想到的编程语言应有的特性。
 
-以下是一些原版自带的着色器示例（以前的「Super Secret Settings」）
+**后处理**着色器在 1.7 首次加入，会在游戏已经渲染好画面以后再起效。它们能够接受整个屏幕的像素作为输入，然后逐像素地输出。除了一些有限的特例以外，着色器所能接受到的唯一数据就是正显示在屏幕上的内容。以下是一些原版自带的后处理着色器示例：
 
-![image.png](https://i.loli.net/2019/09/23/yBqZsxOk2SAgfPd.png)  
+![image.png](https://i.loli.net/2019/09/23/yBqZsxOk2SAgfPd.png)  \
 "Pencil"
 
-![image.png](https://i.loli.net/2019/09/23/i5Kldntc4s8y9DE.png)  
+![image.png](https://i.loli.net/2019/09/23/i5Kldntc4s8y9DE.png)  \
 "Bits"
 
-![image.png](https://i.loli.net/2019/09/23/ebnrL8aI2V9sfUQ.png)  
+![image.png](https://i.loli.net/2019/09/23/ebnrL8aI2V9sfUQ.png)  \
 "NTSC"
+
+后处理着色器在以下情况下会被使用：
+- 以特定生物的视角旁观时（苦力怕、蜘蛛、末影人）
+- 屏幕中有具有发光状态效果的实体时
+- 选择了「极佳」图像品质时
+
+**核心**着色器在 1.17 加入 —— 所有你能在屏幕上看到的东西都是由一个核心着色器渲染的。以下是一些通过修改核心着色器所能达到的效果：
+
+![core1-onnowhere.png](https://i.loli.net/2021/03/13/V5evOE79Ylujgfc.png)  \
+(Onnowhere)
+
+![core2-aeldrion.png](https://i.loli.net/2021/03/13/tIRa8odiNeyTQWw.png)  \
+(Aeldrion)
+
+![core3-onnowhere.png](https://i.loli.net/2021/03/13/14Z2rXpTxcmvOiN.png)  \
+(Onnowhere)
 
 # 梗概：着色器的组成部分
 
-[Post](#创建一个 post JSON) 文件（储存在 `assets/minecraft/shaders/post` 目录下）定义了一个由一系列「着色器程序」（program）组成的渲染管线（pipeline）。下图展示了由 `creeper.json` 定义的管线：
+后处理着色器使用储存在 `assets/minecraft/shaders/post` 目录下的 [「后处理文件」（post）](#创建一个 post JSON) 定义由一系列「着色器程序」（program）组成的渲染管线（pipeline）。下图展示了由 `creeper.json` 定义的管线：
 
-![image.png](https://i.loli.net/2019/09/24/Ewl8WJZUIaFPV7G.png)
+![creeper.json-pipeline.png](https://i.loli.net/2019/09/24/Ewl8WJZUIaFPV7G.png)
 
-每个[「着色器程序」](#创建一个「着色器程序」JSON)（例如 `color_convolve`）都是定义在另一个 JSON 文件当中的（这回储存在 `shaders/program` 目录下）。该文件通常包括：
+每个[「着色器程序」](#创建一个「着色器程序」JSON)（例如 `color_convolve`）都是定义在另一个 JSON 文件当中的（这回储存在 `shaders/program` 目录下）。该文件主要包括：
 - 一个要使用的「顶点着色器」（vertex shader）的路径（一个以 GLSL 语言编写的 `.vsh` 文件）
 - 一个要使用的「片段着色器」（fragment shader）的路径（一个以 GLSL 语言编写的 `.fsh` 文件）
+
+`shaders/core` 下则储存了由游戏（而非上面提到的后处理管线）直接调用的着色器程序。
 
 [「顶点着色器」](#编写一个顶点着色器)会对每个顶点起效，将顶点的位置作为输入，并产生一个经过变换的位置作为输出。一个扭曲屏幕的顶点着色器示例见下：
 
@@ -69,7 +111,7 @@ categories: translation
     - `assets/minecraft/shaders/post`
     - `assets/minecraft/shaders/program`
 
-如果你想要参考原版的着色器，可以直接从游戏 jar 文件里面解压：`%APPDATA%/.minecraft/versions/1.14.4/1.14.4.jar/assets/minecraft/shaders/`。
+如果你想要参考原版的着色器，可以直接从游戏 jar 文件里面解压：`%APPDATA%/.minecraft/versions/1.16.5/1.16.5.jar/assets/minecraft/shaders/`。
 
 你可能还需要给你用的编辑器装一个 GLSL 的语法高亮插件。
 
@@ -79,17 +121,18 @@ categories: translation
 
 ![image.png](https://i.loli.net/2019/09/23/5yjrHDIwMWt1fm2.png)
 
-# 创建一个 post JSON
+# 创建一个后处理 JSON
 
-Post.JSON 文件应该放置在 `assets/minecraft/shaders/post` 目录当中，并且命名为：
+后处理 JSON 文件应该放置在 `assets/minecraft/shaders/post` 目录当中，并且命名为：
 - `creeper.json` 将在以苦力怕视角旁观时启用
 - `invert.json` 将在以末影人视角旁观时启用
 - `spider.json` 将在以蜘蛛视角旁观时启用
 - `entity_outline.json` 将在屏幕中有具有发光状态效果的实体时启用
+- `transparency.json` 将在玩家启用了「极佳」图像品质时启用
 
-我们只能通过替换以上四个现存的着色器来使用自定义着色器。没有应用其他着色器的办法。
+我们只能通过替换以上五个现存的文件来自定义后处理着色器。
 
-post 文件由两个数组构成：
+后处理文件由两个数组构成：
 
 ```json
 {
@@ -100,7 +143,7 @@ post 文件由两个数组构成：
 
 ## Targets
 
-`"targets"` 数组**声明**了一些**帧缓冲（frame buffers）** —— 把它们想象成我们可以往上面读取或写入像素的画布。该数组中的每一项都可以是以下两者之一：
+`"targets"` 数组声明了一些**帧缓冲（frame buffers）** —— 把它们想象成我们可以往上面读取或写入像素的画布。该数组中的每一项都可以是以下两者之一：
 - 一个有着 `"name"`（名称，字符串）、`"width"`（宽度，整型数字）、`"height"`（高度，整型数字）三个参数的对象。这三个参数描述了帧缓冲。
 - 一个字符串名称。宽度和高度将会默认为游戏窗口的宽度和高度。
 
@@ -119,18 +162,18 @@ post 文件由两个数组构成：
 
 - 为**发光着色器**准备的、预先填充好的特殊缓冲区
 
-    ![image.png](https://i.loli.net/2019/09/23/nsHvkReqrzWlwAK.png)  
-    `minecraft:main`  
+    ![image.png](https://i.loli.net/2019/09/23/nsHvkReqrzWlwAK.png)  \
+    `minecraft:main`  \
     没有水、方块实体和其他一些东西
 
-    ![image.png](https://i.loli.net/2019/09/23/kCLdXx63pQfqn51.png)  
-    `final`  
+    ![image.png](https://i.loli.net/2019/09/23/kCLdXx63pQfqn51.png)  \
+    `final`  \
     纯色的实体。颜色是该实体所在队伍的颜色
 
 - 为**实体视角着色器**准备的、预先填充好的特殊缓冲区
 
-    ![image.png](https://i.loli.net/2019/09/23/p2fI9tuVwUGJOng.png)  
-    `minecraft:main`  
+    ![image.png](https://i.loli.net/2019/09/23/p2fI9tuVwUGJOng.png)  \
+    `minecraft:main`  \
     所有内容都已渲染完成
 
 ## Passes
@@ -173,7 +216,7 @@ post 文件由两个数组构成：
     - `"height"` - 以像素为单位的图片高度（*似乎没有实际效果？*）
     - `"bilinear"` - 指定该图片被采样时使用的缩放算法
 
-> 缩放算法：  
+> 缩放算法：  \
 > ![image.png](https://i.loli.net/2019/09/28/sAapzHChyGuo5e9.png)
 
 一个示例 auxtargets 数组如下，它使得着色器程序能够访问 `qux` 缓冲，以及一张叫作 `abc.png` 的图片：
@@ -209,7 +252,7 @@ post 文件由两个数组构成：
 
 ## 可运作的示例
 
-以下是一个可以正常运作的完整的 post JSON 文件。它添加了一个 "notch" 抖动效果，并减少了颜色饱和度。
+以下是一个可以正常运作的完整的后处理 JSON 文件。它添加了一个 ["notch" 抖动效果](https://i.loli.net/2021/03/13/iygSHTpYO7E93dw.png)，并减少了颜色饱和度。
 
 ![image.png](https://i.loli.net/2019/09/28/tV4AmDFdT7hyHcv.png)
 
@@ -274,7 +317,7 @@ post 文件由两个数组构成：
 "attributes": [ "Position" ],
 ```
 
-`"samplers"` 定义了片段着色器想要访问缓冲需要用到的变量名（采样器）。`"DiffuseSampler"` 是被自动给予 `"intarget"` 中定义的缓冲的采样器。其他的任何名字都需要与你在 [post 文件的 `"auxtargets"`](#Passes.Auxtargets) 中指定的一致。
+`"samplers"` 定义了片段着色器想要访问缓冲需要用到的变量名（采样器）。`"DiffuseSampler"` 是被自动给予 `"intarget"` 中定义的缓冲的采样器。其他的任何名字都需要与你在 [后处理文件的 `"auxtargets"`](#Passes.Auxtargets) 中指定的一致。
 
 ```json
 "samplers": [
@@ -374,8 +417,8 @@ post 文件由两个数组构成：
 
 > ### 标量
 > 
-> `bool`: 布尔值 `true` / `false`  
-> `int` / `unit`: 有符号 / 无符号 32 位整型数字  
+> `bool`: 布尔值 `true` / `false`  \
+> `int` / `unit`: 有符号 / 无符号 32 位整型数字  \
 > `float` / `double`: 单精度 / 双精度浮点数
 > 
 > ### 向量
@@ -386,8 +429,8 @@ post 文件由两个数组构成：
 > 
 > ### 矩阵
 > 
-> `mat`**_`n`_**: 由 `float` 组成的矩阵，大小为 **_`n`_** × **_`n`_**  
-> `mat`**_`n`_**`x`**_`m`_**: 由 `float` 组成的矩阵，大小为 **_`n`_** × **_`m`_**  
+> `mat`**_`n`_**: 由 `float` 组成的矩阵，大小为 **_`n`_** × **_`n`_**  \
+> `mat`**_`n`_**`x`**_`m`_**: 由 `float` 组成的矩阵，大小为 **_`n`_** × **_`m`_**  \
 > 
 > **_`n`_** 和 **_`m`_** 都必须为 2、3 或 4。
 > 
@@ -439,7 +482,7 @@ while (x < 20) { ... }
 
 `attributes`（属性）只能由顶点着色器读取，它自动包含了当前顶点的一些信息。对于 Minecraft 的着色器来说，它只包含了顶点的 `Position`（位置）属性。
 
-`uniform`（全局量）可以被顶点着色器与片段着色器读取，对所有的顶点或像素都会保持恒定不变。它们的值可以通过 post JSON 文件传入，否则将会使用在着色器程序 JSON 文件中定义的默认值。
+`uniform`（全局量）可以被顶点着色器与片段着色器读取，对所有的顶点或像素都会保持恒定不变。它们的值可以通过后处理 JSON 文件传入，否则将会使用在着色器程序 JSON 文件中定义的默认值。
 
 `varying`（传递变量）由顶点着色器声明并赋值，然后可在片段着色器中被读取。这些值会在顶点间**插值**计算出来。举个例子：
 
@@ -449,11 +492,20 @@ varying vec2 texCoord;
 
 ![image.png](https://i.loli.net/2019/09/28/c7WE8yQUFjdZoDO.png)
 
+> 编辑：从 21w10a 起，原版的着色器从 GLSL 版本 120 升级到了 150。`varying` 和 `attribute` 现在变成了 `in` 和 `out`。  \
+> 对于顶点着色器，`attribute` 应该改为 `in`，`varying` 应该改为 `out`。  \
+> 对于片段着色器，`varying` 应该改为 `in`，而特殊值 `fragColor` 应该改为 `out`。  \
+> `uniform` 保持不变。  \
+> 可以查看原版 jar 文件中的着色器查看示例。  \
+> 我会在 1.17 更新后的某些时间更新本篇教程。
+
 # 编写一个顶点着色器
 
 顶点着色器会在每个顶点上运行，以对顶点进行变换。通常来讲这指的是世界几何体的每一个顶点 —— 但是在 Minecraft 中，它指的只是缓冲四个角上的顶点。这使得目前的顶点着色器十分受限。不对顶点缓冲器做任何修改是很常见的做法（绝大多数原版的着色器程序都重复使用了 `sobel.vsh`）。
 
 ![image.png](https://i.loli.net/2019/09/28/xCswyYEjhgpQPAi.png)
+
+> 编辑：从 21w10a 起，核心着色器引入了真正的顶点着色器。以下的图片现在可以实现了。本节有待更新。
 
 顶点着色器的主要工作是用一个「投影矩阵」乘坐标。一般来讲这会把一个处于[视锥](https://upload.wikimedia.org/wikipedia/commons/0/02/ViewFrustum.svg)内的顶点转换到一个 2×2×2 的立方体中，这样能够更方便地拍扁到屏幕上：
 
@@ -697,18 +749,46 @@ if (texCoord.x == 731031) { gl_FragColor = texture2D(DiffuseSampler, texCoord); 
 
 *TODO：Rotation*
 
+## 旁观死亡技巧
+
+假设你在旁观一个实体时死亡（如使用 `/kill @s`），该实体的旁观着色器在你重生后依然会生效 —— 甚至你再切换到别的游戏模式都不会失效。
+
+在 1.15 快照中加入的 `/spectate` 命令和 `doImmediateRespawn` 游戏规则使这成为了一个能够几乎无缝应用任何实体旁观着色器的方式。
+
+以下函数会向玩家应用苦力怕的旁观着色器：
+```mcfunction
+TODO 示例命令
+```
+
+不过请注意：
+- 这是个 bug，因此可能在任何时刻被修复。
+- 某些行为，例如按 F5 进入第三人称视角，会使着色器失效。
+
+> **一些还没有加入本指导的新内容**
+> \
+> 20w22a 起允许着色器访问深度缓冲，并加入了用于「极佳」图像品质的新的着色器。请参考原版 jar 文件中的 `shaders/post/transparency.json`。
+> \
+> 21w10a 加入了全新的「核心」着色器程序（由游戏直接调用，没有对应的后处理 JSON 文件），并且还引入了真正的顶点着色器。请参考原版 jar 文件中的 `shaders/core` 目录，以及 Felix 的示例数据包：https://gist.github.com/felixjones/d5bec1ab0c83ee134fa43a142692a09b
+> \
+> 方块渲染类型：https://gist.github.com/boq/4514320b590de1fbe84349d23b542b28
+> \
+> https://docs.google.com/document/d/18AhcnAI55liax72yh70njUomIzezOKshCurfdZPTKwM/edit
+> \
+> 从源代码和文件引用  \
+> ![moj_import.png](https://i.loli.net/2021/03/13/A2dOGgEmR1hv5cP.png)
+
 # 工具和参考
 
 ## GLSL
 
-文档：  
+文档：  \
 http://docs.gl/sl4/all
 
-教程：  
-https://www.shadertoy.com/view/Md23DV  
+教程：  \
+https://www.shadertoy.com/view/Md23DV  \
 https://thebookofshaders.com/
 
-非 Minecraft 的示例：  
+非 Minecraft 的示例：  \
 https://www.shadertoy.com/
 
 ## SpiderEye
@@ -752,3 +832,11 @@ v0.1：初步发布
 简单的着色器，将 `minecraft:main` 缓存显示在一个方块上
 
 *易于理解的着色器*
+
+---
+
+![water-blur-refraction-example.png](https://i.loli.net/2021/03/13/ReCwvnhbYgDdr1f.png)
+
+[水体模糊/折射](https://drive.google.com/open?id=1WYt87rJ2GzMFCIQlsKRMemLthsIz9P9A)
+
+给水加入了模糊和折射
