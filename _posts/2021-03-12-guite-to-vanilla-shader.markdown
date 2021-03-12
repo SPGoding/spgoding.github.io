@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 原版着色器指导
-date: 2021-03-21 10:35:00 -0600
+date: 2021-03-12 10:35:00 -0600
 categories: translation
 ---
 
