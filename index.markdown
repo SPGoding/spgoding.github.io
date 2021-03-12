@@ -37,7 +37,7 @@ If you want to host your project's localization on this website for free, please
 
 ## Search Engine
 
-SPGoding also has a self-hosted [Searx][searx] instance. If you're brave enough to hand all your search history and privacy to me, [check it out][searx].
+SPGoding also has a self-hosted [Searx][searx] instance. If you're brave enough to hand all your search history and privacy to me, [check it out][search].
 
 You probably won't be tracked, but I can't guarantee anything.
 
@@ -48,6 +48,7 @@ You probably won't be tracked, but I can't guarantee anything.
 [l10n]: https://l10n.spgoding.com/
 [minecraftdotnet]: https://minecraft.net/
 [searx]: https://searx.me/
+[search]: https://search.spgoding.com/
 [spyglass]: https://spyglassmc.com/
 [spu]: https://spu.spgoding.com/
 [spx]: https://spx.spgoding.com/
