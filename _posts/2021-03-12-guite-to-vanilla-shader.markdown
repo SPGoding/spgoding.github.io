@@ -9,7 +9,7 @@ categories: translation
 - [前言](#前言)
 - [梗概：着色器的组成部分](#梗概着色器的组成部分)
 - [开始](#开始)
-- [创建一个后处理 JSON](#创建一个后处理-json)
+- [创建一个「后处理」JSON](#创建一个后处理json)
     - [Targets](#targets)
     - [Passes](#passes)
         - [Passes.Auxtargets](#passesauxtargets)
@@ -47,7 +47,7 @@ categories: translation
 - 鸣　谢: 森林蝙蝠 - 提供了各种专业名词的专业机翻
 - 截止翻译时，原文最后更新: 2021-03-10 for Minecraft 21w10a (WIP)
 
-**已经原作者授权**
+**授权**
 
 ![image.png](https://i.loli.net/2019/09/23/pR95MBJQdq7Ooth.png)
 
@@ -86,11 +86,11 @@ categories: translation
 
 # 梗概：着色器的组成部分
 
-后处理着色器使用储存在 `assets/minecraft/shaders/post` 目录下的 [「后处理文件」（post）](#创建一个 post JSON) 定义由一系列「着色器程序」（program）组成的渲染管线（pipeline）。下图展示了由 `creeper.json` 定义的管线：
+后处理着色器使用储存在 `assets/minecraft/shaders/post` 目录下的 [「后处理文件」（post）](#创建一个后处理json) 定义由一系列「着色器程序」（program）组成的渲染管线（pipeline）。下图展示了由 `creeper.json` 定义的管线：
 
 ![creeper.json-pipeline.png](https://i.loli.net/2019/09/24/Ewl8WJZUIaFPV7G.png)
 
-每个[「着色器程序」](#创建一个「着色器程序」JSON)（例如 `color_convolve`）都是定义在另一个 JSON 文件当中的（这回储存在 `shaders/program` 目录下）。该文件主要包括：
+[「着色器程序」](#创建一个着色器程序json)（例如 `color_convolve`）应当被定义在另一个 JSON 文件中（储存在 `shaders/program` 目录下）。该文件主要包括：
 - 一个要使用的「顶点着色器」（vertex shader）的路径（一个以 GLSL 语言编写的 `.vsh` 文件）
 - 一个要使用的「片段着色器」（fragment shader）的路径（一个以 GLSL 语言编写的 `.fsh` 文件）
 
@@ -121,7 +121,7 @@ categories: translation
 
 ![image.png](https://i.loli.net/2019/09/23/5yjrHDIwMWt1fm2.png)
 
-# 创建一个后处理 JSON
+# 创建一个「后处理」JSON
 
 后处理 JSON 文件应该放置在 `assets/minecraft/shaders/post` 目录当中，并且命名为：
 - `creeper.json` 将在以苦力怕视角旁观时启用
@@ -555,7 +555,7 @@ void main(){
 
 ## Sampler
 
-`texture2D` 函数允许你用一个[采样器](#创建一个「着色器程序」JSON)来获取一个缓冲中的像素。例如：
+`texture2D` 函数允许你用一个[采样器](#创建一个着色器程序json)来获取一个缓冲中的像素。例如：
 
 ```glsl
 vec4 centerPixel = texture2D(DiffuseSampler, vec2(0.5, 0.5));
