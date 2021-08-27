@@ -1,0 +1,1679 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://spgoding.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://spgoding.com/" rel="alternate" type="text/html" /><updated>2021-08-27T18:21:01+00:00</updated><id>https://spgoding.com/feed.xml</id><title type="html">spgoding.com</title><subtitle>SPGoding's personal website.</subtitle><entry><title type="html">Minecraft：Java 版命令返回值列表</title><link href="https://spgoding.com/command/2021/03/26/command-result-value.html" rel="alternate" type="text/html" title="Minecraft：Java 版命令返回值列表" /><published>2021-03-26T04:21:00+00:00</published><updated>2021-03-26T04:21:00+00:00</updated><id>https://spgoding.com/command/2021/03/26/command-result-value</id><content type="html" xml:base="https://spgoding.com/command/2021/03/26/command-result-value.html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#minecraftjava-版命令返回值列表&quot;&gt;Minecraft：Java 版命令返回值列表。&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#正文&quot;&gt;正文&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#advancement&quot;&gt;advancement&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#grant&quot;&gt;grant&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#revoke&quot;&gt;revoke&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#bossbar&quot;&gt;bossbar&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#add&quot;&gt;add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#get&quot;&gt;get&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#list&quot;&gt;list&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#remove&quot;&gt;remove&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#set&quot;&gt;set&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#clear&quot;&gt;clear&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#clone&quot;&gt;clone&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#data&quot;&gt;data&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#get-1&quot;&gt;get&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#merge&quot;&gt;merge&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#modify&quot;&gt;modify&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#remove-1&quot;&gt;remove&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#datapack&quot;&gt;datapack&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#disable&quot;&gt;disable&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#enable&quot;&gt;enable&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#list-1&quot;&gt;list&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#debug&quot;&gt;debug&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#start&quot;&gt;start&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#stop&quot;&gt;stop&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#defaultgamemode&quot;&gt;defaultgamemode&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#difficulty&quot;&gt;difficulty&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#effect&quot;&gt;effect&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#give&quot;&gt;give&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#clear-1&quot;&gt;clear&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#enchant&quot;&gt;enchant&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#execute&quot;&gt;execute&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#experience&quot;&gt;experience&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#add-1&quot;&gt;add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#query&quot;&gt;query&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#set-1&quot;&gt;set&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#fill&quot;&gt;fill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#forceload&quot;&gt;forceload&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#add-2&quot;&gt;add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#query-1&quot;&gt;query&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#remove-2&quot;&gt;remove&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#function&quot;&gt;function&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#gamemode&quot;&gt;gamemode&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#gamerule&quot;&gt;gamerule&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#give-1&quot;&gt;give&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#help&quot;&gt;help&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#kick&quot;&gt;kick&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#kill&quot;&gt;kill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#list-2&quot;&gt;list&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#loot&quot;&gt;loot&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#locate&quot;&gt;locate&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#me&quot;&gt;me&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#msg&quot;&gt;msg&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#particle&quot;&gt;particle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#playsound&quot;&gt;playsound&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#publish&quot;&gt;publish&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#recipe&quot;&gt;recipe&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#reload&quot;&gt;reload&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#replaceitem&quot;&gt;replaceitem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#say&quot;&gt;say&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#schedule&quot;&gt;schedule&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#scoreboard&quot;&gt;scoreboard&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectives-add&quot;&gt;objectives add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectives-list&quot;&gt;objectives list&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectives-modify&quot;&gt;objectives modify&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectives-remove&quot;&gt;objectives remove&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#objectives-setdisplay&quot;&gt;objectives setdisplay&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-add&quot;&gt;players add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-enable&quot;&gt;players enable&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-get&quot;&gt;players get&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-list&quot;&gt;players list&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-operation&quot;&gt;players operation&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-remove&quot;&gt;players remove&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-reset&quot;&gt;players reset&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#players-set&quot;&gt;players set&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#seed&quot;&gt;seed&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#setblock&quot;&gt;setblock&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#setworldspawn&quot;&gt;setworldspawn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#spawnpoint&quot;&gt;spawnpoint&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#spreadplayers&quot;&gt;spreadplayers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#stopsound&quot;&gt;stopsound&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#summon&quot;&gt;summon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#tag&quot;&gt;tag&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#add-3&quot;&gt;add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#list-3&quot;&gt;list&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#remove-3&quot;&gt;remove&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#team&quot;&gt;team&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#add-4&quot;&gt;add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#empty&quot;&gt;empty&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#join&quot;&gt;join&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#leave&quot;&gt;leave&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#list-4&quot;&gt;list&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#modify-1&quot;&gt;modify&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#remove-4&quot;&gt;remove&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#teleport&quot;&gt;teleport&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#tell&quot;&gt;tell&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#tellraw&quot;&gt;tellraw&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#time&quot;&gt;time&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#add-5&quot;&gt;add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#query-day&quot;&gt;query day&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#query-daytime&quot;&gt;query daytime&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#query-gametime&quot;&gt;query gametime&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#set-2&quot;&gt;set&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#title&quot;&gt;title&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#actionbar&quot;&gt;actionbar&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#clear-2&quot;&gt;clear&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#reset&quot;&gt;reset&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#subtitle&quot;&gt;subtitle&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#times&quot;&gt;times&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#title-1&quot;&gt;title&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#tp&quot;&gt;tp&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#trigger&quot;&gt;trigger&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#w&quot;&gt;w&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#weather&quot;&gt;weather&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#worldborder&quot;&gt;worldborder&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#add-6&quot;&gt;add&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#center&quot;&gt;center&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#damage&quot;&gt;damage&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#get-2&quot;&gt;get&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#set-3&quot;&gt;set&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#warning-distance&quot;&gt;warning distance&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#warning-time&quot;&gt;warning time&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#xp&quot;&gt;xp&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;minecraftjava-版命令返回值列表&quot;&gt;Minecraft：Java 版命令返回值列表。&lt;/h1&gt;
+
+&lt;p&gt;本文最后更新于：1.14.4&lt;/p&gt;
+
+&lt;p&gt;使用 Ctrl + F 可以快速找到你需要的命令。&lt;/p&gt;
+
+&lt;p&gt;由于 Minecraft Wiki 上的相关命令页面已经包含了命令的结果，本文将不再加入 1.14.4 后新加入命令的数据。&lt;/p&gt;
+
+&lt;h1 id=&quot;正文&quot;&gt;正文&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;命令返回值&lt;/strong&gt;，直观来看是命令在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execute store result ... run ...&lt;/code&gt; 命令中可被存储的值。  &lt;br /&gt;
+该值为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Int32&lt;/code&gt; 类型，取值范围从 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-2,147,483,648&lt;/code&gt; 到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2,147,483,647&lt;/code&gt;，因此有部分命令的返回值会发生溢出，本文会对有可能溢出的命令进行标记。&lt;/p&gt;
+
+&lt;h2 id=&quot;advancement&quot;&gt;advancement&lt;/h2&gt;
+&lt;h3 id=&quot;grant&quot;&gt;grant&lt;/h3&gt;
+
+&lt;p&gt;返回：实际给予的进度的个数。
+如果玩家被给予某个已经达成的进度，该进度不会被算入返回值。
+特别地，当实际给予的进度数量为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; 时，没有返回值（即 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execute store&lt;/code&gt; 命令不会引起任何改变）。&lt;/p&gt;
+
+&lt;h3 id=&quot;revoke&quot;&gt;revoke&lt;/h3&gt;
+
+&lt;p&gt;返回：实际剥夺的进度的个数。
+如果玩家被给予某个已经达成的进度，该进度不会被算入返回值。
+特别地，当实际剥夺的进度数量为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; 时，没有返回值（即 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execute store&lt;/code&gt; 命令不会引起任何改变）。&lt;/p&gt;
+
+&lt;h2 id=&quot;bossbar&quot;&gt;bossbar&lt;/h2&gt;
+&lt;h3 id=&quot;add&quot;&gt;add&lt;/h3&gt;
+
+&lt;p&gt;返回：在命令执行以后，存在的自定义 bossbar 的数量。
+由游戏创建的 bossbar（如末影龙的血条）不会被计入。
+特别地，如果尝试创建了一个已经存在的 bossbar，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;get&quot;&gt;get&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;参数&lt;/th&gt;
+      &lt;th&gt;返回值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;max&lt;/td&gt;
+      &lt;td&gt;该 bossbar 的最大值。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;players&lt;/td&gt;
+      &lt;td&gt;可以见到该 bossbar 的玩家个数（也许会溢出，本人没有那么多玩家进行测试，相信你们也没有）。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;value&lt;/td&gt;
+      &lt;td&gt;该 bossbar 的值。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;visible&lt;/td&gt;
+      &lt;td&gt;若该 bossbar 可见，则返回 1；否则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;list&quot;&gt;list&lt;/h3&gt;
+
+&lt;p&gt;返回：存在的自定义 bossbar 的数量。
+由游戏创建的 bossbar（如末影龙的血条）不会被计入。&lt;/p&gt;
+
+&lt;h3 id=&quot;remove&quot;&gt;remove&lt;/h3&gt;
+
+&lt;p&gt;返回：在命令执行以后，存在的自定义 bossbar 的数量。
+由游戏创建的 bossbar（如末影龙的血条）不会被计入。
+特别地，如果尝试删除了一个不存在的 bossbar，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;set&quot;&gt;set&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;参数&lt;/th&gt;
+      &lt;th&gt;返回值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;color&lt;/td&gt;
+      &lt;td&gt;永远的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;max&lt;/td&gt;
+      &lt;td&gt;修改后的 bossbar 的最大值。特别地，如果修改后的值与原先值相同，返回 0。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;name&lt;/td&gt;
+      &lt;td&gt;永远的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;players&lt;/td&gt;
+      &lt;td&gt;修改后的可以见到 bossbar 的玩家个数。特别地，如果修改后的&lt;strong&gt;玩家&lt;/strong&gt;与原先&lt;strong&gt;玩家&lt;/strong&gt;相同，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;style&lt;/td&gt;
+      &lt;td&gt;永远的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;value&lt;/td&gt;
+      &lt;td&gt;修改后的 bossbar 的值。特别地，如果修改后的值与原先值相同，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;visible&lt;/td&gt;
+      &lt;td&gt;永远的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;clear&quot;&gt;clear&lt;/h2&gt;
+&lt;p&gt;返回：实际清除的物品个数。如果最大数量指定为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;，将会返回背包中指定物品的总个数。&lt;/p&gt;
+&lt;h2 id=&quot;clone&quot;&gt;clone&lt;/h2&gt;
+&lt;p&gt;返回：被复制的方块个数。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;模式&lt;/th&gt;
+      &lt;th&gt;返回值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;replace&lt;/td&gt;
+      &lt;td&gt;该区域包含的所有方块的个数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;masked&lt;/td&gt;
+      &lt;td&gt;该区域包含的非空气方块的个数&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;filtered&lt;/td&gt;
+      &lt;td&gt;该区域包含的满足指定条件的方块的个数&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;特别地，当复制失败（非 force 模式且区域重叠），返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;data&quot;&gt;data&lt;/h2&gt;
+&lt;h3 id=&quot;get-1&quot;&gt;get&lt;/h3&gt;
+
+&lt;p&gt;当指定的方块没有 NBT 时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;当指定的为实体/存储/方块实体时&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;下表为乘上倍数（scale）前的数据。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;路径&lt;/th&gt;
+      &lt;th&gt;返回值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;未指定&lt;/td&gt;
+      &lt;td&gt;永远为 1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Compound&lt;/td&gt;
+      &lt;td&gt;该 Compound 包含的 键-值对 个数。特别地，对于根 Compound，返回值是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;（可能溢出）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;List&lt;/td&gt;
+      &lt;td&gt;该 列表 包含的 项 个数（可能溢出）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte/Int/:ong Array&lt;/td&gt;
+      &lt;td&gt;该 数组 包含的 项 个数（可能溢出）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;String&lt;/td&gt;
+      &lt;td&gt;该 字符串 包含的 字符 个数，其中转义字符算上转义符号为一位（即&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\\&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;\&quot;&lt;/code&gt;的位数是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;），中文字符的位数是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;（可能溢出）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Byte Short Int&lt;/td&gt;
+      &lt;td&gt;该 数字 的值&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Long&lt;/td&gt;
+      &lt;td&gt;该 数字 的值（极有可能溢出）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Float Double&lt;/td&gt;
+      &lt;td&gt;该 数字 直接舍弃小数位的值（可能溢出）&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;merge&quot;&gt;merge&lt;/h3&gt;
+
+&lt;p&gt;当指定的 NBT 与原先 NBT 不同，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;；
+当指定的 NBT 与原先 NBT 完全相同时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;modify&quot;&gt;modify&lt;/h3&gt;
+
+&lt;p&gt;当成功编辑时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;；
+当编辑失败，或是编辑后的值和之前完全一致时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;remove-1&quot;&gt;remove&lt;/h3&gt;
+
+&lt;p&gt;当尝试移除不存在的路径，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;；
+当移除存在的路径，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;datapack&quot;&gt;datapack&lt;/h2&gt;
+&lt;h3 id=&quot;disable&quot;&gt;disable&lt;/h3&gt;
+
+&lt;p&gt;返回：禁用掉指定的数据包后仍然启用的数据包个数。
+特别地，当尝试禁用不存在的数据包或已经禁用的数据包，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;enable&quot;&gt;enable&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后启用的数据包个数。
+特别地，当尝试启用不存在的数据包或已经启用的数据包，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;list-1&quot;&gt;list&lt;/h3&gt;
+
+&lt;p&gt;返回：命令指定类型（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;available&lt;/code&gt; 或 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;enabled&lt;/code&gt;）的数据包的个数。&lt;/p&gt;
+&lt;h2 id=&quot;debug&quot;&gt;debug&lt;/h2&gt;
+&lt;h3 id=&quot;start&quot;&gt;start&lt;/h3&gt;
+
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;stop&quot;&gt;stop&lt;/h3&gt;
+
+&lt;p&gt;返回：自 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug start&lt;/code&gt; 后到现在的 tps（ticks per second）（直接舍弃末位小数）。
+特别地，如果没有执行过 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;debug start&lt;/code&gt;，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;defaultgamemode&quot;&gt;defaultgamemode&lt;/h2&gt;
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;difficulty&quot;&gt;difficulty&lt;/h2&gt;
+&lt;p&gt;若在参数中指定了难度，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;；
+若没有指定参数，返回当前难度的数字 ID，下表是一个对应关系。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;难度&lt;/th&gt;
+      &lt;th&gt;英文ID&lt;/th&gt;
+      &lt;th&gt;数字ID&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;和平&lt;/td&gt;
+      &lt;td&gt;peaceful&lt;/td&gt;
+      &lt;td&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;简单&lt;/td&gt;
+      &lt;td&gt;easy&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;普通&lt;/td&gt;
+      &lt;td&gt;normal&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;困难&lt;/td&gt;
+      &lt;td&gt;hard&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;effect&quot;&gt;effect&lt;/h2&gt;
+&lt;h3 id=&quot;give&quot;&gt;give&lt;/h3&gt;
+
+&lt;p&gt;返回：实际被给予效果的实体个数。
+例如，即使指定了给 2 个实体效果，但其中有 1 个实体不支持状态效果，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; 而不是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;clear-1&quot;&gt;clear&lt;/h3&gt;
+&lt;p&gt;返回：实际被清除效果的实体个数。
+例如，即使指定清除 2 个实体的效果，但其中有 1 个实体没有这个效果或不支持状态效果，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; 而不是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;enchant&quot;&gt;enchant&lt;/h2&gt;
+&lt;p&gt;返回：实际的手中物品被给予附魔魔咒的实体个数。
+例如，即使指定给予 2 个实体手中物品附魔魔咒，但其中有 1 个实体手中没有物品、手中物品已附魔或手中物品不支持附魔，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; 而不是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;execute&quot;&gt;execute&lt;/h2&gt;
+&lt;p&gt;若没有接 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt;，且没有 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if|unless&lt;/code&gt;，没有返回值（即 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execute store&lt;/code&gt; 命令不会引起任何改变）；
+若没有接 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt; 但有 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if|unless&lt;/code&gt;，按下表返回：&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;子命令&lt;/th&gt;
+      &lt;th&gt;返回值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;block&lt;/td&gt;
+      &lt;td&gt;若方块匹配，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;；否则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;blocks&lt;/td&gt;
+      &lt;td&gt;若方块匹配，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all&lt;/code&gt; 模式返回原区域方块个数，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;masked&lt;/code&gt; 模式返回原区域非空气方块个数；否则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;data&lt;/td&gt;
+      &lt;td&gt;返回按照指定的 NBT 路径能够在指定实体/存储/方块实体上获得的 NBT 标签的个数。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;entity&lt;/td&gt;
+      &lt;td&gt;返回匹配的实体个数。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;score&lt;/td&gt;
+      &lt;td&gt;若分数匹配，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;；否则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;若 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt; 后命令在该 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execute&lt;/code&gt; 指定的命令执行者（们）执行后，每个执行者得到的返回值相同，则返回该返回值；若任一返回值不同，则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;experience&quot;&gt;experience&lt;/h2&gt;
+&lt;h3 id=&quot;add-1&quot;&gt;add&lt;/h3&gt;
+
+&lt;p&gt;返回：被加（或减）经验的玩家的个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;query&quot;&gt;query&lt;/h3&gt;
+
+&lt;p&gt;返回：指定玩家的经验等级/经验点数。
+注意：点数为在当前等级下的点数，并非玩家的全部点数。&lt;/p&gt;
+
+&lt;h3 id=&quot;set-1&quot;&gt;set&lt;/h3&gt;
+
+&lt;p&gt;返回：被设置经验的玩家的个数。 特别地，当设定的经验点数大于玩家当前等级能容纳的最大点数时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;fill&quot;&gt;fill&lt;/h2&gt;
+&lt;p&gt;返回：实际被填充的方块的个数。
+在非 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;destroy&lt;/code&gt; 模式下，指定区域内与指定方块相同的方块不会被算入个数中；
+在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;destroy&lt;/code&gt; 模式下，返回值即为指定区域内的方块数量。特别地，在空气中填充空气，即使是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;destroy&lt;/code&gt; 模式也不会被计入，这一点和 &lt;a href=&quot;#setblock&quot;&gt;setblock&lt;/a&gt; 命令不同。&lt;/p&gt;
+&lt;h2 id=&quot;forceload&quot;&gt;forceload&lt;/h2&gt;
+&lt;h3 id=&quot;add-2&quot;&gt;add&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后新增的强制加载区块的个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;query-1&quot;&gt;query&lt;/h3&gt;
+
+&lt;p&gt;若指定 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;pos&amp;gt;&lt;/code&gt; 参数，当指定坐标所在的区块已被强制加载时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;，否则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。
+若没有指定 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;pos&amp;gt;&lt;/code&gt; 参数，则返回当前世界中被强制加载的区块的个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;remove-2&quot;&gt;remove&lt;/h3&gt;
+
+&lt;p&gt;若指定的参数为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;all&lt;/code&gt; 时，永远返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。
+否则，返回命令执行后减少的强制加载区块的数量。&lt;/p&gt;
+&lt;h2 id=&quot;function&quot;&gt;function&lt;/h2&gt;
+&lt;p&gt;返回：执行该函数后聊天栏显示的“已执行命令个数”。
+（事实上，没人知道这个数字是使用怎样弱智的手法计算出来的。在函数递归、互相调用的情况下，这个返回的数字简直令人作呕。作为普通玩家，我们也不需要知道这些没用的东西。就让 MJ 自己 S[size=0px]*B 去吧！）&lt;/p&gt;
+&lt;h2 id=&quot;gamemode&quot;&gt;gamemode&lt;/h2&gt;
+&lt;p&gt;返回：实际被改变模式的玩家个数。
+如果某个玩家本身就是指定模式，它不会被算入返回值。&lt;/p&gt;
+&lt;h2 id=&quot;gamerule&quot;&gt;gamerule&lt;/h2&gt;
+&lt;p&gt;当不指定值（即查询指定规则的值）时，按下表返回该规则的值。 当指定值（即设置制定规则的值）时，按下表返回你指定的值。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;规则类型&lt;/th&gt;
+      &lt;th&gt;返回值&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Boolean&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; 返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; 返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Int&lt;/td&gt;
+      &lt;td&gt;返回该数字的值&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;give-1&quot;&gt;give&lt;/h2&gt;
+&lt;p&gt;返回：被给予物品的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;help&quot;&gt;help&lt;/h2&gt;
+&lt;p&gt;返回：手动执行该命令后，输出的内容行数。&lt;/p&gt;
+&lt;h2 id=&quot;kick&quot;&gt;kick&lt;/h2&gt;
+&lt;p&gt;返回：被踢出的玩家数量。&lt;/p&gt;
+&lt;h2 id=&quot;kill&quot;&gt;kill&lt;/h2&gt;
+&lt;p&gt;返回：被杀死的实体个数。&lt;/p&gt;
+&lt;h2 id=&quot;list-2&quot;&gt;list&lt;/h2&gt;
+&lt;p&gt;返回：在线的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;loot&quot;&gt;loot&lt;/h2&gt;
+&lt;p&gt;返回：&amp;lt;来源&amp;gt;产生的物品的堆数。&lt;/p&gt;
+
+&lt;p&gt;e.g. &amp;lt;来源&amp;gt;产生了「1 个骨头」或「2 个骨头」，返回值均为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;；&amp;lt;来源&amp;gt;产生了「2 个骨头和 3 支箭」，返回值则为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;假设&amp;lt;来源&amp;gt;分三个随机池产生了「2 个骨头和 2 个骨头和 2 个骨头」，返回值大概为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3&lt;/code&gt;。不过这个没有测试过。&lt;/p&gt;
+
+&lt;h2 id=&quot;locate&quot;&gt;locate&lt;/h2&gt;
+&lt;p&gt;返回：当前坐标距离指定结构坐标的水平距离。 特别地，当指定结构不存在，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;me&quot;&gt;me&lt;/h2&gt;
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;msg&quot;&gt;msg&lt;/h2&gt;
+&lt;p&gt;返回：被私信的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;particle&quot;&gt;particle&lt;/h2&gt;
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;playsound&quot;&gt;playsound&lt;/h2&gt;
+&lt;p&gt;返回：被播放音乐的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;publish&quot;&gt;publish&lt;/h2&gt;
+&lt;p&gt;返回：该局域网世界被分配的端口数。 特别地，如果该世界已经被开向局域网，或尝试在服务器内执行该命令，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;recipe&quot;&gt;recipe&lt;/h2&gt;
+&lt;p&gt;返回：实际解锁/剥夺的配方个数。&lt;/p&gt;
+&lt;h2 id=&quot;reload&quot;&gt;reload&lt;/h2&gt;
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;replaceitem&quot;&gt;replaceitem&lt;/h2&gt;
+&lt;p&gt;返回：被替换物品的实体/方块个数。&lt;/p&gt;
+&lt;h2 id=&quot;say&quot;&gt;say&lt;/h2&gt;
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;schedule&quot;&gt;schedule&lt;/h2&gt;
+&lt;p&gt;返回：函数被计划执行的游戏时间（即手动执行命令时，提示「即游戏时间 xxx 时执行」的「xxx」）。&lt;/p&gt;
+&lt;h2 id=&quot;scoreboard&quot;&gt;scoreboard&lt;/h2&gt;
+&lt;h3 id=&quot;objectives-add&quot;&gt;objectives add&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后的计分项个数。 特别地，当尝试创建一个已经存在的计分项时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;objectives-list&quot;&gt;objectives list&lt;/h3&gt;
+
+&lt;p&gt;返回：当前计分项个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;objectives-modify&quot;&gt;objectives modify&lt;/h3&gt;
+
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;objectives-remove&quot;&gt;objectives remove&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后的计分项个数。 特别地，当尝试移除一个并不存在的计分项时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;objectives-setdisplay&quot;&gt;objectives setdisplay&lt;/h3&gt;
+
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-add&quot;&gt;players add&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后，指定目标指定计分项的分数。 特别地，当尝试为不存在的计分项添加分数时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-enable&quot;&gt;players enable&lt;/h3&gt;
+
+&lt;p&gt;返回：被激活指定计分项的目标个数。 特别地，当尝试激活非 trigger 计分项时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-get&quot;&gt;players get&lt;/h3&gt;
+
+&lt;p&gt;返回：指定目标指定计分项的分数。 特别地，当尝试获取不存在的计分项的分数时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-list&quot;&gt;players list&lt;/h3&gt;
+
+&lt;p&gt;返回：指定目标所拥有的分数个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-operation&quot;&gt;players operation&lt;/h3&gt;
+
+&lt;p&gt;返回：运算结束后，第一组参数指定的目标在指定计分项上的分数。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-remove&quot;&gt;players remove&lt;/h3&gt;
+
+&lt;p&gt;没有返回值（即 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;execute store&lt;/code&gt; 命令不会引起任何改变）。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-reset&quot;&gt;players reset&lt;/h3&gt;
+
+&lt;p&gt;返回：被重置的目标个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;players-set&quot;&gt;players set&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后，指定目标指定计分项的分数。&lt;/p&gt;
+&lt;h2 id=&quot;seed&quot;&gt;seed&lt;/h2&gt;
+&lt;p&gt;返回：当前地图的种子。（极有可能溢出）&lt;/p&gt;
+&lt;h2 id=&quot;setblock&quot;&gt;setblock&lt;/h2&gt;
+&lt;p&gt;返回：实际放置的方块个数。
+在非 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;destroy&lt;/code&gt; 模式下，原位置的方块与放置的方块不同时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;，否则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。
+在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;destroy&lt;/code&gt; 模式下，永远返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;，这一点和 &lt;a href=&quot;#fill&quot;&gt;fill&lt;/a&gt; 命令不同，请注意。&lt;/p&gt;
+&lt;h2 id=&quot;setworldspawn&quot;&gt;setworldspawn&lt;/h2&gt;
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;spawnpoint&quot;&gt;spawnpoint&lt;/h2&gt;
+&lt;p&gt;返回：被设置出生点的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;spreadplayers&quot;&gt;spreadplayers&lt;/h2&gt;
+&lt;p&gt;返回：被分散的实体个数。&lt;/p&gt;
+&lt;h2 id=&quot;stopsound&quot;&gt;stopsound&lt;/h2&gt;
+&lt;p&gt;返回：被停止音效的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;summon&quot;&gt;summon&lt;/h2&gt;
+&lt;p&gt;返回：如果召唤成功，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;；否则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;tag&quot;&gt;tag&lt;/h2&gt;
+&lt;h3 id=&quot;add-3&quot;&gt;add&lt;/h3&gt;
+
+&lt;p&gt;返回：实际被加上 tag 的实体个数。
+如果某个实体已经有了该 tag，则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;list-3&quot;&gt;list&lt;/h3&gt;
+
+&lt;p&gt;返回：指定实体的 tag 个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;remove-3&quot;&gt;remove&lt;/h3&gt;
+
+&lt;p&gt;返回：实际被移除 tag 的实体个数。
+如果某个实体并没有该 tag，则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;team&quot;&gt;team&lt;/h2&gt;
+&lt;h3 id=&quot;add-4&quot;&gt;add&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后，存在的队伍个数。 特别地，如果队伍已经存在，则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;empty&quot;&gt;empty&lt;/h3&gt;
+
+&lt;p&gt;返回：从指定队伍中移出的实体个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;join&quot;&gt;join&lt;/h3&gt;
+
+&lt;p&gt;返回：新加入指定队伍的实体个数。
+即使该实体已经在指定队伍内，也会被计入。&lt;/p&gt;
+
+&lt;h3 id=&quot;leave&quot;&gt;leave&lt;/h3&gt;
+
+&lt;p&gt;返回：退出队伍的实体个数。
+即使该实体没有参加任何队伍，也会被计入。&lt;/p&gt;
+
+&lt;h3 id=&quot;list-4&quot;&gt;list&lt;/h3&gt;
+
+&lt;p&gt;返回：存在的队伍个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;modify-1&quot;&gt;modify&lt;/h3&gt;
+
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;remove-4&quot;&gt;remove&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后，存在的队伍个数。
+ 特别地，如果指定队伍并不存在，则返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;teleport&quot;&gt;teleport&lt;/h2&gt;
+&lt;p&gt;返回：被传送的实体个数。&lt;/p&gt;
+&lt;h2 id=&quot;tell&quot;&gt;tell&lt;/h2&gt;
+&lt;p&gt;参见 &lt;a href=&quot;#msg&quot;&gt;msg 命令&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;tellraw&quot;&gt;tellraw&lt;/h2&gt;
+&lt;p&gt;返回：被显示文本的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;time&quot;&gt;time&lt;/h2&gt;
+&lt;h3 id=&quot;add-5&quot;&gt;add&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后的 Minecraft 中自破晓后的时间（单位：刻）。&lt;/p&gt;
+
+&lt;h3 id=&quot;query-day&quot;&gt;query day&lt;/h3&gt;
+
+&lt;p&gt;返回：Minecraft 中度过的游戏内天数（单位：天）。&lt;/p&gt;
+
+&lt;h3 id=&quot;query-daytime&quot;&gt;query daytime&lt;/h3&gt;
+
+&lt;p&gt;返回：Minecraft 中自破晓后的时间（单位：刻）。&lt;/p&gt;
+
+&lt;h3 id=&quot;query-gametime&quot;&gt;query gametime&lt;/h3&gt;
+
+&lt;p&gt;返回：玩家游玩 当前 Minecraft 存档的总时长（单位：刻）。&lt;/p&gt;
+
+&lt;h3 id=&quot;set-2&quot;&gt;set&lt;/h3&gt;
+
+&lt;p&gt;返回：命令执行后的 Minecraft 中自破晓后的时间（单位：刻）。&lt;/p&gt;
+
+&lt;h2 id=&quot;title&quot;&gt;title&lt;/h2&gt;
+&lt;h3 id=&quot;actionbar&quot;&gt;actionbar&lt;/h3&gt;
+
+&lt;p&gt;返回：被设置 actionbar 的玩家个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;clear-2&quot;&gt;clear&lt;/h3&gt;
+
+&lt;p&gt;返回：被清除标题的玩家个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;reset&quot;&gt;reset&lt;/h3&gt;
+
+&lt;p&gt;返回：被重置数据的玩家个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;subtitle&quot;&gt;subtitle&lt;/h3&gt;
+
+&lt;p&gt;返回：被设置副标题的玩家个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;times&quot;&gt;times&lt;/h3&gt;
+
+&lt;p&gt;返回：被设置时间的玩家个数。&lt;/p&gt;
+
+&lt;h3 id=&quot;title-1&quot;&gt;title&lt;/h3&gt;
+
+&lt;p&gt;返回：被标题的玩家个数。&lt;/p&gt;
+&lt;h2 id=&quot;tp&quot;&gt;tp&lt;/h2&gt;
+&lt;p&gt;参见 &lt;a href=&quot;#teleport&quot;&gt;teleport 命令&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;trigger&quot;&gt;trigger&lt;/h2&gt;
+&lt;p&gt;返回：在命令执行以后，指定计分项在当前目标上的分数。 特别地，当指定目标没有权限修改指定计分项时，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;w&quot;&gt;w&lt;/h2&gt;
+&lt;p&gt;参见 &lt;a href=&quot;#msg&quot;&gt;msg 命令&lt;/a&gt;。&lt;/p&gt;
+&lt;h2 id=&quot;weather&quot;&gt;weather&lt;/h2&gt;
+&lt;p&gt;返回：指定天气状态的持续时间（单位为刻，命令中的参数单位为秒）。&lt;/p&gt;
+&lt;h2 id=&quot;worldborder&quot;&gt;worldborder&lt;/h2&gt;
+&lt;h3 id=&quot;add-6&quot;&gt;add&lt;/h3&gt;
+
+&lt;p&gt;返回：世界边界变化的宽度（正数为增加，负数为减小）。&lt;/p&gt;
+
+&lt;h3 id=&quot;center&quot;&gt;center&lt;/h3&gt;
+
+&lt;p&gt;返回：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;damage&quot;&gt;damage&lt;/h3&gt;
+
+&lt;p&gt;返回：命令中设定的伤害的值。
+特别地，如果伤害值没有任何改变，返回 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;get-2&quot;&gt;get&lt;/h3&gt;
+
+&lt;p&gt;返回：世界边界的宽度。&lt;/p&gt;
+
+&lt;h3 id=&quot;set-3&quot;&gt;set&lt;/h3&gt;
+
+&lt;p&gt;返回：世界边界变化的宽度（正数为增加，负数为减小）。&lt;/p&gt;
+
+&lt;h3 id=&quot;warning-distance&quot;&gt;warning distance&lt;/h3&gt;
+
+&lt;p&gt;返回：开始警告的距离。&lt;/p&gt;
+
+&lt;h3 id=&quot;warning-time&quot;&gt;warning time&lt;/h3&gt;
+
+&lt;p&gt;返回：开始警告的时间。&lt;/p&gt;
+&lt;h2 id=&quot;xp&quot;&gt;xp&lt;/h2&gt;
+&lt;p&gt;参见 &lt;a href=&quot;#experience&quot;&gt;experience 命令&lt;/a&gt;。&lt;/p&gt;</content><author><name></name></author><category term="command" /><summary type="html">Minecraft：Java 版命令返回值列表。 正文 advancement grant revoke bossbar add get list remove set clear clone data get merge modify remove datapack disable enable list debug start stop defaultgamemode difficulty effect give clear enchant execute experience add query set fill forceload add query remove function gamemode gamerule give help kick kill list loot locate me msg particle playsound publish recipe reload replaceitem say schedule scoreboard objectives add objectives list objectives modify objectives remove objectives setdisplay players add players enable players get players list players operation players remove players reset players set seed setblock setworldspawn spawnpoint spreadplayers stopsound summon tag add list remove team add empty join leave list modify remove teleport tell tellraw time add query day query daytime query gametime set title actionbar clear reset subtitle times title tp trigger w weather worldborder add center damage get set warning distance warning time xp</summary></entry><entry><title type="html">原版着色器指导</title><link href="https://spgoding.com/translation/2021/03/12/guite-to-vanilla-shader.html" rel="alternate" type="text/html" title="原版着色器指导" /><published>2021-03-12T16:35:00+00:00</published><updated>2021-03-12T16:35:00+00:00</updated><id>https://spgoding.com/translation/2021/03/12/guite-to-vanilla-shader</id><content type="html" xml:base="https://spgoding.com/translation/2021/03/12/guite-to-vanilla-shader.html">&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#原版着色器指导&quot;&gt;原版着色器指导&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#前言&quot;&gt;前言&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#梗概着色器的组成部分&quot;&gt;梗概：着色器的组成部分&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#开始&quot;&gt;开始&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#创建一个后处理json&quot;&gt;创建一个「后处理」JSON&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#targets&quot;&gt;Targets&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#passes&quot;&gt;Passes&lt;/a&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;#passesauxtargets&quot;&gt;Passes.Auxtargets&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#passesuniforms&quot;&gt;Passes.Uniforms&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#可运作的示例&quot;&gt;可运作的示例&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#创建一个着色器程序json&quot;&gt;创建一个「着色器程序」JSON&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#可运作的示例-1&quot;&gt;可运作的示例&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#glsl-基础&quot;&gt;GLSL 基础&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#数据类型&quot;&gt;数据类型&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#着色器程序工作流程&quot;&gt;着色器程序工作流程&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#属性全局量传递变量&quot;&gt;属性、全局量、传递变量&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#编写一个顶点着色器&quot;&gt;编写一个顶点着色器&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#可运作的示例-2&quot;&gt;可运作的示例&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#编写一个片段着色器&quot;&gt;编写一个片段着色器&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#sampler&quot;&gt;Sampler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#可运作的示例-3&quot;&gt;可运作的示例&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#技巧与难题&quot;&gt;技巧与难题&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#发光颜色&quot;&gt;发光颜色&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#阴影&quot;&gt;阴影&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#编译器优化问题&quot;&gt;编译器优化问题&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#跨帧储存信息&quot;&gt;跨帧储存信息&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#着色器启用顺序&quot;&gt;着色器启用顺序&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#blit-缩放问题&quot;&gt;Blit 缩放问题&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#读取玩家输入&quot;&gt;读取玩家输入&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#旁观死亡技巧&quot;&gt;旁观死亡技巧&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#工具和参考&quot;&gt;工具和参考&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#glsl&quot;&gt;GLSL&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#spidereye&quot;&gt;SpiderEye&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#着色器示例&quot;&gt;着色器示例&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;原版着色器指导&quot;&gt;原版着色器指导&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;原　文: &lt;a href=&quot;https://docs.google.com/document/d/15TOAOVLgSNEoHGzpNlkez5cryH3hFF3awXL5Py81EMk/edit#&quot;&gt;Guide to vanilla shaders&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;原作者: SirBenet&lt;/li&gt;
+  &lt;li&gt;鸣　谢: 森林蝙蝠 - 提供了各种专业名词的专业机翻&lt;/li&gt;
+  &lt;li&gt;截止翻译时，原文最后更新: 2021-03-10 for Minecraft 21w10a (WIP)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;授权&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/pR95MBJQdq7Ooth.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;前言&quot;&gt;前言&lt;/h1&gt;
+
+&lt;p&gt;原版 Minecraft 有着许多 GLSL 着色器。这些着色器可以直接通过资源包更改，进而嵌在地图里，或者是在玩家进入服务器时自动启用。&lt;/p&gt;
+
+&lt;p&gt;着色器以 OpenGL Shading Language（GLSL）语言编写，这是一个类似 C 的语言，支持浮点数、向量、矩阵，以及函数、条件、循环以及其他各种你能想到的编程语言应有的特性。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;后处理&lt;/strong&gt;着色器在 1.7 首次加入，会在游戏已经渲染好画面以后再起效。它们能够接受整个屏幕的像素作为输入，然后逐像素地输出。除了一些有限的特例以外，着色器所能接受到的唯一数据就是正显示在屏幕上的内容。以下是一些原版自带的后处理着色器示例：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/yBqZsxOk2SAgfPd.png&quot; alt=&quot;image.png&quot; /&gt;  &lt;br /&gt;
+“Pencil”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/i5Kldntc4s8y9DE.png&quot; alt=&quot;image.png&quot; /&gt;  &lt;br /&gt;
+“Bits”&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/ebnrL8aI2V9sfUQ.png&quot; alt=&quot;image.png&quot; /&gt;  &lt;br /&gt;
+“NTSC”&lt;/p&gt;
+
+&lt;p&gt;后处理着色器在以下情况下会被使用：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;以特定生物的视角旁观时（苦力怕、蜘蛛、末影人）&lt;/li&gt;
+  &lt;li&gt;屏幕中有具有发光状态效果的实体时&lt;/li&gt;
+  &lt;li&gt;选择了「极佳」图像品质时&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;核心&lt;/strong&gt;着色器在 1.17 加入 —— 所有你能在屏幕上看到的东西都是由一个核心着色器渲染的。以下是一些通过修改核心着色器所能达到的效果：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/13/V5evOE79Ylujgfc.png&quot; alt=&quot;core1-onnowhere.png&quot; /&gt;  &lt;br /&gt;
+(Onnowhere)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/13/tIRa8odiNeyTQWw.png&quot; alt=&quot;core2-aeldrion.png&quot; /&gt;  &lt;br /&gt;
+(Aeldrion)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/13/14Z2rXpTxcmvOiN.png&quot; alt=&quot;core3-onnowhere.png&quot; /&gt;  &lt;br /&gt;
+(Onnowhere)&lt;/p&gt;
+
+&lt;h1 id=&quot;梗概着色器的组成部分&quot;&gt;梗概：着色器的组成部分&lt;/h1&gt;
+
+&lt;p&gt;后处理着色器使用储存在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/minecraft/shaders/post&lt;/code&gt; 目录下的 &lt;a href=&quot;#创建一个后处理json&quot;&gt;「后处理文件」（post）&lt;/a&gt; 定义由一系列「着色器程序」（program）组成的渲染管线（pipeline）。下图展示了由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;creeper.json&lt;/code&gt; 定义的管线：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/24/Ewl8WJZUIaFPV7G.png&quot; alt=&quot;creeper.json-pipeline.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#创建一个着色器程序json&quot;&gt;「着色器程序」&lt;/a&gt;（例如 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;color_convolve&lt;/code&gt;）应当被定义在另一个 JSON 文件中（储存在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shaders/program&lt;/code&gt; 目录下）。该文件主要包括：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;一个要使用的「顶点着色器」（vertex shader）的路径（一个以 GLSL 语言编写的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.vsh&lt;/code&gt; 文件）&lt;/li&gt;
+  &lt;li&gt;一个要使用的「片段着色器」（fragment shader）的路径（一个以 GLSL 语言编写的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.fsh&lt;/code&gt; 文件）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shaders/core&lt;/code&gt; 下则储存了由游戏（而非上面提到的后处理管线）直接调用的着色器程序。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#编写一个顶点着色器&quot;&gt;「顶点着色器」&lt;/a&gt;会对每个顶点起效，将顶点的位置作为输入，并产生一个经过变换的位置作为输出。一个扭曲屏幕的顶点着色器示例见下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/suc3nB2gvitdZ6I.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#编写一个片段着色器&quot;&gt;「片段着色器」&lt;/a&gt;会对每个像素起效，并逐像素产生输出层。一个不改变任何内容的片段着色器将直接把输入的像素原样产生。一个交换红色和蓝色色道的片段着色器示例见下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/QY4Net5fjFMHExJ.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;开始&quot;&gt;开始&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://minecraft-zh.gamepedia.com/%E6%95%99%E7%A8%8B/%E5%88%B6%E4%BD%9C%E8%B5%84%E6%BA%90%E5%8C%85&quot;&gt;建立一个资源包&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;在里面建好以下文件夹：
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/minecraft/shaders/post&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/minecraft/shaders/program&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;如果你想要参考原版的着色器，可以直接从游戏 jar 文件里面解压：&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;%APPDATA%/.minecraft/versions/1.16.5/1.16.5.jar/assets/minecraft/shaders/&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;你可能还需要给你用的编辑器装一个 GLSL 的语法高亮插件。&lt;/p&gt;
+
+&lt;p&gt;打开&lt;strong&gt;游戏日志&lt;/strong&gt; —— 任何着色器的错误都会显示在这里。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/5bxNJBGdg726zvn.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/5yjrHDIwMWt1fm2.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;创建一个后处理json&quot;&gt;创建一个「后处理」JSON&lt;/h1&gt;
+
+&lt;p&gt;后处理 JSON 文件应该放置在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/minecraft/shaders/post&lt;/code&gt; 目录当中，并且命名为：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;creeper.json&lt;/code&gt; 将在以苦力怕视角旁观时启用&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;invert.json&lt;/code&gt; 将在以末影人视角旁观时启用&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spider.json&lt;/code&gt; 将在以蜘蛛视角旁观时启用&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;entity_outline.json&lt;/code&gt; 将在屏幕中有具有发光状态效果的实体时启用&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;transparency.json&lt;/code&gt; 将在玩家启用了「极佳」图像品质时启用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我们只能通过替换以上五个现存的文件来自定义后处理着色器。&lt;/p&gt;
+
+&lt;p&gt;后处理文件由两个数组构成：&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;targets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;passes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;targets&quot;&gt;Targets&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;targets&quot;&lt;/code&gt; 数组声明了一些&lt;strong&gt;帧缓冲（frame buffers）&lt;/strong&gt; —— 把它们想象成我们可以往上面读取或写入像素的画布。该数组中的每一项都可以是以下两者之一：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;一个有着 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;name&quot;&lt;/code&gt;（名称，字符串）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;width&quot;&lt;/code&gt;（宽度，整型数字）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;height&quot;&lt;/code&gt;（高度，整型数字）三个参数的对象。这三个参数描述了帧缓冲。&lt;/li&gt;
+  &lt;li&gt;一个字符串名称。宽度和高度将会默认为游戏窗口的宽度和高度。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;你可以在声明帧缓冲时随意混用两种方式：&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;targets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;baz&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;width&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;73&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;height&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;qux&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;除了这些手动声明的缓冲层，还有一些特殊的、预先定义好的缓冲。这些缓冲里面会自带内容，不需要声明就可以直接使用。它们是：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;为&lt;strong&gt;发光着色器&lt;/strong&gt;准备的、预先填充好的特殊缓冲区&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/nsHvkReqrzWlwAK.png&quot; alt=&quot;image.png&quot; /&gt;  &lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt;  &lt;br /&gt;
+  没有水、方块实体和其他一些东西&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/kCLdXx63pQfqn51.png&quot; alt=&quot;image.png&quot; /&gt;  &lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt;  &lt;br /&gt;
+  纯色的实体。颜色是该实体所在队伍的颜色&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;为&lt;strong&gt;实体视角着色器&lt;/strong&gt;准备的、预先填充好的特殊缓冲区&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/23/p2fI9tuVwUGJOng.png&quot; alt=&quot;image.png&quot; /&gt;  &lt;br /&gt;
+  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt;  &lt;br /&gt;
+  所有内容都已渲染完成&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;passes&quot;&gt;Passes&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;passes&quot;&lt;/code&gt; 数组定义了一系列的按顺序执行的步骤。每一个步骤都包含一个输入缓冲层（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;in_target&quot;&lt;/code&gt;），并运行一个着色器程序（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;name&quot;&lt;/code&gt;），来将数据写入到输出缓冲层（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;out_target&quot;&lt;/code&gt;）当中。一个着色器程序不能把数据输出到它读取的那个缓冲层。&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;passes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;prog1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minecraft:main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;prog2&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;auxtargets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;blit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;uniforms&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minecraft:main&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;blit&quot;&lt;/code&gt; 是一个不改变任何内容的着色器程序，它只是简单地把数据从一个缓冲复制到另一个缓冲当中（注意：&lt;a href=&quot;#Blit 缩放问题&quot;&gt;在不同大小的缓冲之间复制数据时会有问题&lt;/a&gt;）。&lt;/p&gt;
+
+&lt;p&gt;你想要显示的内容应当最终输出到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;minecraft:main&quot;&lt;/code&gt; 缓冲当中（如果是发光着色器，还可以进一步修改 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt; 缓冲，该缓冲的内容&lt;a href=&quot;#着色器启用顺序&quot;&gt;会覆盖到一切内容上面&lt;/a&gt;）&lt;/p&gt;
+
+&lt;h3 id=&quot;passesauxtargets&quot;&gt;Passes.Auxtargets&lt;/h3&gt;
+
+&lt;p&gt;可选的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;auxtargets&quot;&lt;/code&gt; 数组提供了一系列补充的缓冲或图片，使得着色器程序能够&lt;strong&gt;读取&lt;/strong&gt;它们。在 auxtargets 数组中的对象应当包含：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;id&quot;&lt;/code&gt; - 指定一个现存缓冲的名称（即定义在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;targets&quot;&lt;/code&gt; 中的名称），&lt;strong&gt;或者&lt;/strong&gt;是一张位于资源包 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft/textures/effect&lt;/code&gt; 目录下的图片的文件名。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;name&quot;&lt;/code&gt; - 能让你给该缓冲或图片分配任意的一个名称，使得着色器程序的 GLSL 代码中能够访问它们。&lt;/li&gt;
+  &lt;li&gt;如果指定的是一张&lt;strong&gt;图片&lt;/strong&gt;，还必须指定以下参数：
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;width&quot;&lt;/code&gt; - 以像素为单位的图片宽度（&lt;em&gt;似乎没有实际效果？&lt;/em&gt;）&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;height&quot;&lt;/code&gt; - 以像素为单位的图片高度（&lt;em&gt;似乎没有实际效果？&lt;/em&gt;）&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;bilinear&quot;&lt;/code&gt; - 指定该图片被采样时使用的缩放算法&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;缩放算法：  &lt;br /&gt;
+&lt;img src=&quot;https://i.loli.net/2019/09/28/sAapzHChyGuo5e9.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;一个示例 auxtargets 数组如下，它使得着色器程序能够访问 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;qux&lt;/code&gt; 缓冲，以及一张叫作 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;abc.png&lt;/code&gt; 的图片：&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;auxtargets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;qux&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;QuxSampler&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;abc&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ImageSampler&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;width&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;height&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bilinear&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;passesuniforms&quot;&gt;Passes.Uniforms&lt;/h3&gt;
+
+&lt;p&gt;可选的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;uniforms&quot;&lt;/code&gt; 参数能够向着色器程序传递一个浮点数数组。下方的示例使用 uniforms 为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blur&lt;/code&gt; 着色器程序指定了一个半径（radius）和方向（&lt;strong&gt;dir&lt;/strong&gt;ection）：&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;blur&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;swap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minecraft:main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;uniforms&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BlurDir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Radius&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;10.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;可运作的示例&quot;&gt;可运作的示例&lt;/h2&gt;
+
+&lt;p&gt;以下是一个可以正常运作的完整的后处理 JSON 文件。它添加了一个 &lt;a href=&quot;https://i.loli.net/2021/03/13/iygSHTpYO7E93dw.png&quot;&gt;“notch” 抖动效果&lt;/a&gt;，并减少了颜色饱和度。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/tV4AmDFdT7hyHcv.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1lEW6WRHa0xN041qNNhr2XvpspiXK7A6g/view?usp=sharing&quot;&gt;assets/minecraft/shaders/post/spider.json&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;targets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;swap&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;passes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;notch&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minecraft:main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;swap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;auxtargets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DitherSampler&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;dither&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;width&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;height&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;bilinear&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;color_convolve&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;swap&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minecraft:main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;uniforms&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+               &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Saturation&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+           &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;创建一个着色器程序json&quot;&gt;创建一个「着色器程序」JSON&lt;/h1&gt;
+
+&lt;p&gt;着色器程序 JSON 文件应该放置在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/minecraft/shaders/program&lt;/code&gt; 文件夹中。&lt;/p&gt;
+
+&lt;p&gt;可以使用任何名称（只要遵守正常资源包的文件命名规则即可，例如没有大写字母什么的）。&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;blend&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vertex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;fragment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;attributes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;samplers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;uniforms&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;…&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;vertex&quot;&lt;/code&gt; 指定了将要使用的&lt;a href=&quot;#编写一个顶点着色器&quot;&gt;顶点着色器&lt;/a&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.vsh&lt;/code&gt; 文件的文件名。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;fragment&quot;&lt;/code&gt; 指定了将要使用的&lt;a href=&quot;#编写一个片段着色器&quot;&gt;片段着色器&lt;/a&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.fsh&lt;/code&gt; 文件的文件名。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;attributes&quot;&lt;/code&gt; 是一个字符串数组，指定顶点的哪些属性能够被顶点着色器访问到。目前只能写 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Position&quot;&lt;/code&gt;（位置）。&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;attributes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Position&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;samplers&quot;&lt;/code&gt; 定义了片段着色器想要访问缓冲需要用到的变量名（采样器）。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;DiffuseSampler&quot;&lt;/code&gt; 是被自动给予 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;intarget&quot;&lt;/code&gt; 中定义的缓冲的采样器。其他的任何名字都需要与你在 &lt;a href=&quot;#Passes.Auxtargets&quot;&gt;后处理文件的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;auxtargets&quot;&lt;/code&gt;&lt;/a&gt; 中指定的一致。&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;samplers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DiffuseSampler&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DitherSampler&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;uniforms&quot;&lt;/code&gt; 定义了各种&lt;em&gt;全局量&lt;/em&gt;（又译「统一量」。对每个顶点或像素都保持不变的值）的名称、类型和默认值。&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;uniforms&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProjMat&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;matrix4x4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;InSize&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OutSize&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BlurDir&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Radius&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;5.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;name&quot;&lt;/code&gt; 字符串定义了在 GLSL 代码中或者&lt;a href=&quot;#Passes.Uniforms&quot;&gt;在向该着色器程序的该全局量传值时&lt;/a&gt;用的名称。游戏自动给了一些特殊的全局量：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;Time&quot;&lt;/code&gt; - 0 到 1 的一个值，表示在一秒内的时间，每秒自动重置&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;InSize&quot;&lt;/code&gt; - 以像素为单位的输入缓冲（input buffer）的宽度和高度&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;OutSize&quot;&lt;/code&gt; - 以像素为单位的输出缓冲（output buffer）的宽度和高度&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;ProjMat&quot;&lt;/code&gt; - 由顶点着色器使用的投影矩阵（projection matrix）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;values&quot;&lt;/code&gt; 应为一个浮点数数组，而 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;type&quot;&lt;/code&gt; 则定义了这些浮点数会在 GLSL 代码中被解析为的&lt;a href=&quot;#数据类型&quot;&gt;数据类型&lt;/a&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;float&quot;&lt;/code&gt; - 一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt; 或 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vec2&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vec3&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vec4&lt;/code&gt;，具体取决于在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;values&quot;&lt;/code&gt; 中指定的数字个数&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;matrix4x4&quot;&lt;/code&gt; - 一个由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;values&quot;&lt;/code&gt; 中指定的 16 个值产生的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mat4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;matrix3x3&quot;&lt;/code&gt; - &lt;em&gt;可用的类型，但仍然需要输入 16 个值？&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;matrix2x2&quot;&lt;/code&gt; - &lt;em&gt;可用的类型，但仍然需要输入 16 个值？&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;blend&quot;&lt;/code&gt; 理论上定义了着色器程序的输出应当怎样与目标缓冲（destination buffer）上已有的内容合并，&lt;em&gt;但目前好像没有效果。&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;blend&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;func&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;srcrgb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;one&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dstrgb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;zero&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;更多关于这些模式本应怎样运作的信息可以查看：khronos.org/opengl/wiki/Blending&lt;/p&gt;
+
+&lt;h2 id=&quot;可运作的示例-1&quot;&gt;可运作的示例&lt;/h2&gt;
+
+&lt;p&gt;以下是一个可以正常运作的完整的着色器程序 JSON 文件。这是原版的 “wobble” 着色器，未经修改。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1GssoJB9wQrj-POC_DZ--Rewmfvz9QvEq/view?usp=sharing&quot;&gt;assets/minecraft/shaders/program/wobble.json&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;blend&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;func&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;add&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;srcrgb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;one&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;dstrgb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;zero&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;vertex&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;sobel&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;fragment&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;wobble&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;attributes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Position&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;samplers&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DiffuseSampler&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;uniforms&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ProjMat&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;matrix4x4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                      &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                      &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                      &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;InSize&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;OutSize&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Time&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Frequency&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;512.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;288.0&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;WobbleAmount&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;float&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;count&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+          &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;values&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.002&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.002&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;glsl-基础&quot;&gt;GLSL 基础&lt;/h1&gt;
+
+&lt;p&gt;该部分假设读者已经熟悉了基本的编程概念（变量、函数、循环等），并且主要讲解 GLSL 特有的特性。如果你之前从来没有接触过编程，我不建议你用 GLSL 上手。&lt;/p&gt;
+
+&lt;p&gt;有关核心语言的更多信息：khronos.org/opengl/wiki/Core_Language_(GLSL)&lt;/p&gt;
+
+&lt;p&gt;有关所有可用函数的详细文档：docs.gl/sl4/all&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;： 原版 jar 文件中的着色器是用的 GLSL 版本是 110，本文为保持一致也将使用该版本。不过，由于 &lt;a href=&quot;https://help.mojang.com/customer/en/portal/articles/325948-minecraft-java-edition-system-requirements&quot;&gt;Minecraft 需要 OpenGL 4.4&lt;/a&gt;，你可以放心地使用最高到 440 版本的 GLSL。版本需要在 GLSL 代码的开头声明（可以看示例）。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;数据类型&quot;&gt;数据类型&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;标量&quot;&gt;标量&lt;/h3&gt;
+
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bool&lt;/code&gt;: 布尔值 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; / &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;  &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;int&lt;/code&gt; / &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unit&lt;/code&gt;: 有符号 / 无符号 32 位整型数字  &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt; / &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;double&lt;/code&gt;: 单精度 / 双精度浮点数&lt;/p&gt;
+
+  &lt;h3 id=&quot;向量&quot;&gt;向量&lt;/h3&gt;
+
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bve&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ive&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uvec&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vec&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dvec&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: 分别代表由 &amp;gt; &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; 个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bool&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;int&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uint&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt; 或 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;double&lt;/code&gt; 组成的向量&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; 必须为 2、3 或 4。&lt;/p&gt;
+
+  &lt;h3 id=&quot;矩阵&quot;&gt;矩阵&lt;/h3&gt;
+
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mat&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: 由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt; 组成的矩阵，大小为 &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; × &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;  &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mat&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x&lt;/code&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;: 由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt; 组成的矩阵，大小为 &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; × &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;  \&lt;/p&gt;
+
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; 和 &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; 都必须为 2、3 或 4。&lt;/p&gt;
+
+  &lt;p&gt;矩阵是&lt;strong&gt;列优先&lt;/strong&gt;的（3×2 = 3 列，2 行）。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;在 GLSL 里最常处理的就是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt; 了。&lt;/p&gt;
+
+&lt;p&gt;想要构造向量和矩阵的话，可以任意组合其他的标量 / 向量：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;mat4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;mat3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;请注意，列优先的矩阵可能有点反直觉：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;mat2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// 第一列（不是第一行！）&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 第二列&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;除了普通的[索引]以外，&lt;strong&gt;混合&lt;/strong&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xyzw&lt;/code&gt; 或 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rgba&lt;/code&gt; 是种方便的获取某个向量的 1 个或多个元素的方式：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;vec3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// == 0.1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yzyz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// == vec4(0.2, 0.3, 0.2, 0.3)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;着色器程序工作流程&quot;&gt;着色器程序工作流程&lt;/h2&gt;
+
+&lt;p&gt;顶点着色器或片段着色器都有一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void main()&lt;/code&gt; 函数，作为代码的起始点。该函数没有任何参数，也不返回任何东西，它只应更新一个现存的特殊变量（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gl_Position&lt;/code&gt; 或 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gl_FragColor&lt;/code&gt;，将在下方解释。）&lt;/p&gt;
+
+&lt;p&gt;由于 GLSL 代码是在无法任意写入内存的硬件上执行的，因此 GLSL 不支持递归操作。不过循环是可以的：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;属性全局量传递变量&quot;&gt;属性、全局量、传递变量&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果你选择了更高版本的 GLSL，该部分在 GLSL 140 及以上版本有所改动。见：https://www.khronos.org/opengl/wiki/Type_Qualifier_(GLSL)#Shader_stage_inputs_and_outputs。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;全局变量可以被声明为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute&lt;/code&gt;（属性）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uniform&lt;/code&gt;（全局量）或 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varying&lt;/code&gt;（传递变量）。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attributes&lt;/code&gt;（属性）只能由顶点着色器读取，它自动包含了当前顶点的一些信息。对于 Minecraft 的着色器来说，它只包含了顶点的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Position&lt;/code&gt;（位置）属性。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uniform&lt;/code&gt;（全局量）可以被顶点着色器与片段着色器读取，对所有的顶点或像素都会保持恒定不变。它们的值可以通过后处理 JSON 文件传入，否则将会使用在着色器程序 JSON 文件中定义的默认值。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varying&lt;/code&gt;（传递变量）由顶点着色器声明并赋值，然后可在片段着色器中被读取。这些值会在顶点间&lt;strong&gt;插值&lt;/strong&gt;计算出来。举个例子：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;varying&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/c7WE8yQUFjdZoDO.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;编辑：从 21w10a 起，原版的着色器从 GLSL 版本 120 升级到了 150。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varying&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute&lt;/code&gt; 现在变成了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;in&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;out&lt;/code&gt;。  &lt;br /&gt;
+对于顶点着色器，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute&lt;/code&gt; 应该改为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;in&lt;/code&gt;，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varying&lt;/code&gt; 应该改为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;out&lt;/code&gt;。  &lt;br /&gt;
+对于片段着色器，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varying&lt;/code&gt; 应该改为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;in&lt;/code&gt;，而特殊值 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fragColor&lt;/code&gt; 应该改为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;out&lt;/code&gt;。  &lt;br /&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;uniform&lt;/code&gt; 保持不变。  &lt;br /&gt;
+可以查看原版 jar 文件中的着色器查看示例。  &lt;br /&gt;
+我会在 1.17 更新后的某些时间更新本篇教程。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;编写一个顶点着色器&quot;&gt;编写一个顶点着色器&lt;/h1&gt;
+
+&lt;p&gt;顶点着色器会在每个顶点上运行，以对顶点进行变换。通常来讲这指的是世界几何体的每一个顶点 —— 但是在 Minecraft 中，它指的只是缓冲四个角上的顶点。这使得目前的顶点着色器十分受限。不对顶点缓冲器做任何修改是很常见的做法（绝大多数原版的着色器程序都重复使用了 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sobel.vsh&lt;/code&gt;）。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/xCswyYEjhgpQPAi.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;编辑：从 21w10a 起，核心着色器引入了真正的顶点着色器。以下的图片现在可以实现了。本节有待更新。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;顶点着色器的主要工作是用一个「投影矩阵」乘坐标。一般来讲这会把一个处于&lt;a href=&quot;https://upload.wikimedia.org/wikipedia/commons/0/02/ViewFrustum.svg&quot;&gt;视锥&lt;/a&gt;内的顶点转换到一个 2×2×2 的立方体中，这样能够更方便地拍扁到屏幕上：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/p39hGSMJB2VfcnX.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;不过在 Minecraft 中，顶点着色器直接就从一个处于 3 维空间内的平面开始，并且直接变换四个角上的顶点，而不是变换任何实际上的几何体的顶点。Minecraft 使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ProjMat&lt;/code&gt; 这样一个特殊的全局量用来计算，虽然这完全可以用 4 个硬编码（hardcoded）的特例来替代（因为这些顶点总是会被计算到相同的位置上）&lt;a href=&quot;#Blit 缩放问题&quot;&gt;*&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/4EAisOGleYaLJHS.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;顶点的初始位置可以从 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Position&lt;/code&gt; 属性获取，而计算结果应当储存到特殊的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gl_Position&lt;/code&gt; 变量当中（这两者都是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vec4&lt;/code&gt;）。&lt;/p&gt;
+
+&lt;p&gt;顶点着色器还定义并赋值了一些有用的传递变量，以供片段着色器使用：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;texCoord&lt;/code&gt;: 范围从 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0,0&lt;/code&gt;（左下角）到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1,1&lt;/code&gt;（右上角）的坐标。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oneTexel&lt;/code&gt;: 在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;texCoord&lt;/code&gt; 所表示的坐标中，一个像素所占的大小。例如：对于一个像素数为 4×2 的输入缓冲，其中每个像素的大小为 0.25×0.5（1/4 的高度，1/2 的宽度）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;可运作的示例-2&quot;&gt;可运作的示例&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sobel.vsh&lt;/code&gt; 顶点着色器，它被绝大多数原版的着色器程序所调用。它并没有什么特别涉及到 sobel（索伯算子？）的东西 —— 这么命名可能只是因为它是 Mojang 第一个使用的着色器程序。&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#version 110
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;attribute&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;uniform&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;mat4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ProjMat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;uniform&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;uniform&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OutSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;varying&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;varying&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oneTexel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;vec4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outPos&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ProjMat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;gl_Position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outPos&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;oneTexel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;OutSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;编写一个片段着色器&quot;&gt;编写一个片段着色器&lt;/h1&gt;
+
+&lt;p&gt;片段着色器会为每一个&lt;strong&gt;输出&lt;/strong&gt;像素执行一次，可以读取它的输入缓冲中的任何像素。&lt;/p&gt;
+
+&lt;p&gt;每一个像素都是异步计算的，因此片段着色器不能读取输出缓冲中的其他像素，因为那些像素有可能还没有被计算 &lt;a href=&quot;https://stackoverflow.com/questions/16365385/explanation-of-dfdx/16368768#16368768&quot;&gt;*&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;sampler&quot;&gt;Sampler&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;texture2D&lt;/code&gt; 函数允许你用一个&lt;a href=&quot;#创建一个着色器程序json&quot;&gt;采样器&lt;/a&gt;来获取一个缓冲中的像素。例如：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;vec4&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;centerPixel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texture2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DiffuseSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在从缓冲中获取像素时，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0.0, 0.0&lt;/code&gt; 是左下角，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.0 1.0&lt;/code&gt; 是右上角。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/pXHyUFJZ7gMx6C8.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这和顶点着色器设置的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;texCoord&lt;/code&gt; 传递变量一致，十分方便。因此对于当前正在输出的像素，你可以用以下代码来获取相应的位于输入缓冲中的像素：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;texture2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DiffuseSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;该函数返回一个包含 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;red&lt;/code&gt;（红）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;green&lt;/code&gt;（绿）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blue&lt;/code&gt;（蓝）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;opacity&lt;/code&gt;（不透明度）的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vec4&lt;/code&gt; —— 这四者都由一个从 0 到 1 的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;float&lt;/code&gt; 表示。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;oneTexel&lt;/code&gt; 代表一个像素（在输入缓冲中）的大小，所以可以用它来偏移指定数量的像素。例如：获取往上数第 3 个像素的颜色：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;texture2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DiffuseSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oneTexel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果想要得到以像素为单位的坐标，而不是 0-1 的小数的话，用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OutSize&lt;/code&gt; 乘即可。例如：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;OutSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// == vec2(1920, 1080)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// == vec2(0.5, 0.5)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;OutSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// == vec2(960, 540)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;片段着色器应当把输出像素写入到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gl_FragColor&lt;/code&gt; 中 —— 另一个由 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;red&lt;/code&gt;（红）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;green&lt;/code&gt;（绿）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blue&lt;/code&gt;（蓝）、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;opacity&lt;/code&gt;（不透明度）构成的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vec4&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;可运作的示例-3&quot;&gt;可运作的示例&lt;/h2&gt;
+
+&lt;p&gt;以下的着色器：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;当距离中心的距离在 0.38 至 0.4 之间时，把这个像素变成橙色&lt;/li&gt;
+  &lt;li&gt;当距离中心的距离小于 0.38 时，读取放大过的（距离中心更近的）像素&lt;/li&gt;
+  &lt;li&gt;当距离中心的距离大于 0.38 时，正常读取对应的输入像素&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#version 110
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;uniform&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;sampler2D&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DiffuseSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;varying&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;varying&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;oneTexel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distFromCenter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distFromCenter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 在圆圈里面&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zoomedCoord&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;gl_FragColor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texture2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DiffuseSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zoomedCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distFromCenter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;38&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distFromCenter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 橙色边框&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;gl_FragColor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;vec4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; 
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// 在圆圈外面，正常的像素&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;gl_FragColor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texture2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DiffuseSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/D5I9Pwc3EWtkj6U.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;技巧与难题&quot;&gt;技巧与难题&lt;/h1&gt;
+
+&lt;h2 id=&quot;发光颜色&quot;&gt;发光颜色&lt;/h2&gt;
+
+&lt;p&gt;发光的实体是一种不易被察觉的向 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;entity_outline&lt;/code&gt; 着色器传递数据的方式，这是因为该着色器可以读取 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt; 缓冲，并且使其不渲染可见的发光边框效果。&lt;/p&gt;
+
+&lt;p&gt;一个具有发光状态效果的实体的轮廓颜色由它所处&lt;strong&gt;队伍的颜色&lt;/strong&gt;决定。实体本身具有的透明度会保留。这使得片段着色器可以读取并使用 16 种不同的颜色以及 256 种不同的透明度值。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/GdwBOAXL8JUfpIv.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（图中添加了棋盘背景以显示出透明度）&lt;/p&gt;
+
+&lt;h2 id=&quot;阴影&quot;&gt;阴影&lt;/h2&gt;
+
+&lt;p&gt;由于片段着色器可以读取像素，因此可以通过像素的颜色信息来传递信息。不过请小心，有许多因素会使你的材质变暗：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;光照等级&quot;&gt;光照等级&lt;/h3&gt;
+
+  &lt;p&gt;远离光源并且不在太阳照射下的方块或实体会变暗。&lt;/p&gt;
+
+  &lt;p&gt;可以用夜视效果或光源避免。&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/eKDOWhgQfrw3UTS.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+  &lt;h3 id=&quot;面阴影&quot;&gt;面阴影&lt;/h3&gt;
+
+  &lt;p&gt;顶面是最亮的，其次是北面和南面，再其次是东面和西面，最暗的是底面。方块和实体都受到这一影响。&lt;/p&gt;
+
+  &lt;p&gt;若想为方块禁用该阴影效果，可以在&lt;a href=&quot;https://minecraft-zh.gamepedia.com/模型#方块模型&quot;&gt;模型&lt;/a&gt;中将每个元素（element）设置为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;shade&quot;: false&lt;/code&gt;。&lt;/p&gt;
+
+  &lt;p&gt;不能为实体禁用！&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/4PamBpFiklLwe97.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+  &lt;h3 id=&quot;环境遮挡平滑光照&quot;&gt;环境遮挡（「平滑光照」）&lt;/h3&gt;
+
+  &lt;p&gt;角落会变暗。只有方块受到这一影响。&lt;/p&gt;
+
+  &lt;p&gt;若想为方块禁用该阴影效果，可以在&lt;a href=&quot;https://minecraft-zh.gamepedia.com/模型#方块模型&quot;&gt;模型&lt;/a&gt;中设置 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;ambientocclusion&quot;:false &lt;/code&gt;。&lt;/p&gt;
+
+  &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/EYiX1bZIRCrGA6F.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;编译器优化问题&quot;&gt;编译器优化问题&lt;/h2&gt;
+
+&lt;p&gt;GLSL 编译器会优化那些&lt;strong&gt;它认为不会对着色器的输出有影响的代码与变量&lt;/strong&gt;（输出指的是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gl_FragColor&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gl_Position&lt;/code&gt; 以及其他任何传递变量）。&lt;/p&gt;
+
+&lt;p&gt;GLSL 编译器找到一个没有被使用的采样器后会把它优化出去，但 Minecraft 仍然会传输同样的缓冲，这就导致了问题：所有的采样器都会读取前一个缓冲的内容。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/bCTycV2xi4zDwqa.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果想避免让编译器优化出某个变量，你可以让编译器认为该变量有可能影响着色器的输出结果。例如，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;texCoord.x&lt;/code&gt; 永远不会是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;731031&lt;/code&gt;，但编译器并不知道这一点：&lt;/p&gt;
+
+&lt;div class=&quot;language-glsl highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;731031&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;gl_FragColor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texture2D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DiffuseSampler&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;texCoord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;跨帧储存信息&quot;&gt;跨帧储存信息&lt;/h2&gt;
+
+&lt;p&gt;缓冲并不会被自动清空，因此着色器可以在不同帧之间传递信息。&lt;/p&gt;
+
+&lt;p&gt;想要获取在上一帧存储的数据很简单：&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;在这一帧中，把数据写入到缓冲&lt;/li&gt;
+  &lt;li&gt;在下一帧中，在&lt;strong&gt;新的数据被写入缓冲之前&lt;/strong&gt;读取它&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;为了让缓冲中的数据能跨刻存在，向一个缓冲写入的着色器程序必须要能让该缓冲中的数据不变。这就有些麻烦了，因为一个着色器程序&lt;strong&gt;必须&lt;/strong&gt;要写入每一个像素，并且在这个过程中&lt;strong&gt;不能&lt;/strong&gt;读取它正在写入的那个缓冲。&lt;/p&gt;
+
+&lt;p&gt;一个解决方案是，首先把信息复制到另一个缓冲当中。这时着色器程序就可以读取被复制出来的那个缓冲，同时把新数据写到原有的缓冲当中了，进而能够为每个像素写入它们在上一帧的值。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/4tYT5KzmVcIqvaP.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nl&quot;&gt;&quot;passes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;blit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo_copy&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;maybe_update&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;intarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;minecraft:main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;auxtargets&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;BackupSampler&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo_copy&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+       &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;outtarget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;着色器启用顺序&quot;&gt;着色器启用顺序&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Minecraft 渲染普通方块和实体到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Minecraft 渲染纯色的发光实体到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;运行发光着色器（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;entity_outline.json&lt;/code&gt;），其能够访问 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt; 与 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt; 缓冲&lt;/li&gt;
+  &lt;li&gt;Minecraft 渲染其他的东西（手、水、方块实体）到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Minecraft 把 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;final&lt;/code&gt; 覆盖到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt; 上&lt;/li&gt;
+  &lt;li&gt;运行实体视角着色器，其能够访问 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt; 缓冲&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;通过发光着色器向 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt; 写入数据（第 3 步）似乎会破坏掉有关深度的信息，使得其他的东西（第 4 步）被渲染到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt; 的所有东西之上：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/crdONlsXaYCnASM.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;blit-缩放问题&quot;&gt;Blit 缩放问题&lt;/h2&gt;
+
+&lt;p&gt;原版默认的 blit 着色器程序在相同大小的缓冲间复制数据时能正常运作，但是会在缓冲大小不一样时出问题。&lt;/p&gt;
+
+&lt;p&gt;这是因为顶点着色器 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;blit.vsh&lt;/code&gt; 没有匹配整个输出缓冲。例如，如果输出缓冲是输入缓冲一半的大小，只有一半的输出缓冲会被写入数据：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/WZ8FD1H9o53JzUj.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下方链接是一个 “Clone” 着色器，能够正确地拉伸输入，使其完全匹配到输出缓冲当中：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/mMegGWOHfnsDip2.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下载：&lt;a href=&quot;https://drive.google.com/file/d/1LIYFv588QcbjmFHObk4sgWqCc1I5CDzq/view?usp=sharing&quot;&gt;着色器程序 JSON 文件&lt;/a&gt;，&lt;a href=&quot;https://drive.google.com/file/d/1_pjORoiga0TT_KB5UrYwMCHIB9mvDmQd/view?usp=sharing&quot;&gt;.vsh GLSL 文件&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;读取玩家输入&quot;&gt;读取玩家输入&lt;/h2&gt;
+
+&lt;p&gt;玩家的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Motion&lt;/code&gt; 不会在服务端更新，但如果玩家尝试在骑着猪或者矿车时移动的话则会更新，尽管玩家事实上并没有移动。通过让玩家骑着猪或矿车，命令能够读取玩家的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Motion&lt;/code&gt;，并（结合玩家的视角方向）确定玩家当前正按下的方向键。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;TODO：示例命令&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;左键或右键的检测和平时一样（击打生物、右键使用胡萝卜钓竿或与村民交谈）。&lt;/p&gt;
+
+&lt;p&gt;任何由命令获取到的信息（例如玩家目前正按着的按键）可以通过&lt;a href=&quot;#发光颜色&quot;&gt;一个发光实体的队伍的颜色传递给着色器&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;TODO：Rotation&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;旁观死亡技巧&quot;&gt;旁观死亡技巧&lt;/h2&gt;
+
+&lt;p&gt;假设你在旁观一个实体时死亡（如使用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/kill @s&lt;/code&gt;），该实体的旁观着色器在你重生后依然会生效 —— 甚至你再切换到别的游戏模式都不会失效。&lt;/p&gt;
+
+&lt;p&gt;在 1.15 快照中加入的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/spectate&lt;/code&gt; 命令和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;doImmediateRespawn&lt;/code&gt; 游戏规则使这成为了一个能够几乎无缝应用任何实体旁观着色器的方式。&lt;/p&gt;
+
+&lt;p&gt;以下函数会向玩家应用苦力怕的旁观着色器：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-mcfunction&quot;&gt;TODO 示例命令
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;不过请注意：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;这是个 bug，因此可能在任何时刻被修复。&lt;/li&gt;
+  &lt;li&gt;某些行为，例如按 F5 进入第三人称视角，会使着色器失效。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;一些还没有加入本指导的新内容&lt;/strong&gt;
+&lt;br /&gt;
+20w22a 起允许着色器访问深度缓冲，并加入了用于「极佳」图像品质的新的着色器。请参考原版 jar 文件中的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shaders/post/transparency.json&lt;/code&gt;。
+&lt;br /&gt;
+21w10a 加入了全新的「核心」着色器程序（由游戏直接调用，没有对应的后处理 JSON 文件），并且还引入了真正的顶点着色器。请参考原版 jar 文件中的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;shaders/core&lt;/code&gt; 目录，以及 Felix 的示例数据包：https://gist.github.com/felixjones/d5bec1ab0c83ee134fa43a142692a09b
+&lt;br /&gt;
+方块渲染类型：https://gist.github.com/boq/4514320b590de1fbe84349d23b542b28
+&lt;br /&gt;
+https://docs.google.com/document/d/18AhcnAI55liax72yh70njUomIzezOKshCurfdZPTKwM/edit
+&lt;br /&gt;
+从源代码和文件引用  &lt;br /&gt;
+&lt;img src=&quot;https://i.loli.net/2021/03/13/A2dOGgEmR1hv5cP.png&quot; alt=&quot;moj_import.png&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;工具和参考&quot;&gt;工具和参考&lt;/h1&gt;
+
+&lt;h2 id=&quot;glsl&quot;&gt;GLSL&lt;/h2&gt;
+
+&lt;p&gt;文档：  &lt;br /&gt;
+http://docs.gl/sl4/all&lt;/p&gt;
+
+&lt;p&gt;教程：  &lt;br /&gt;
+https://www.shadertoy.com/view/Md23DV  &lt;br /&gt;
+https://thebookofshaders.com/&lt;/p&gt;
+
+&lt;p&gt;非 Minecraft 的示例：  &lt;br /&gt;
+https://www.shadertoy.com/&lt;/p&gt;
+
+&lt;h2 id=&quot;spidereye&quot;&gt;SpiderEye&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/KVNgSjClo3XJrMI.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;使用 GLIntercept 做的小工具，能让你查看每个缓冲的数据。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;下载&lt;/strong&gt;：https://drive.google.com/open?id=1p_FOalR0LzKmQu9negjtaVzobO9YSeiu&lt;/p&gt;
+
+&lt;p&gt;v0.1：初步发布&lt;/p&gt;
+
+&lt;p&gt;由于该软件的运作会操作游戏的 OpenGL32.dll 文件，&lt;a href=&quot;https://www.virustotal.com/gui/file/ff4e4037cf7dabcb79cbfc4afa7a52bb05e2e11eabe249a3511614cd58b6420c/detection&quot;&gt;可能会被杀软误报&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&quot;着色器示例&quot;&gt;着色器示例&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/JfRG8SFdto9hVWu.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.reddit.com/r/Minecraft/comments/b15dho/vanilla_portal_gun_in_latest_snapshot_with/&quot;&gt;可以看过去的传送门&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;从一个角度捕获画面并显示&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;完整、复杂的着色器运用&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/uYLwyUVnJz8HGx9.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/open?id=1n-SjTRv6D7CnYXok7A4cB9sqnSw00wGS&quot;&gt;调试文字&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;通过着色器向屏幕上写入文字或数字&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;用来调试着色器的工具&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2019/09/28/APdCim8rUMI1pTz.png&quot; alt=&quot;image.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.reddit.com/r/Minecraft/comments/9hj1l3/a_screen_that_displays_what_youre_seeing_in/&quot;&gt;屏幕方块&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;简单的着色器，将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minecraft:main&lt;/code&gt; 缓存显示在一个方块上&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;易于理解的着色器&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/03/13/ReCwvnhbYgDdr1f.png&quot; alt=&quot;water-blur-refraction-example.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/open?id=1WYt87rJ2GzMFCIQlsKRMemLthsIz9P9A&quot;&gt;水体模糊/折射&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;给水加入了模糊和折射&lt;/p&gt;</content><author><name></name></author><category term="translation" /><summary type="html">原版着色器指导 前言 梗概：着色器的组成部分 开始 创建一个「后处理」JSON Targets Passes Passes.Auxtargets Passes.Uniforms 可运作的示例 创建一个「着色器程序」JSON 可运作的示例 GLSL 基础 数据类型 着色器程序工作流程 属性、全局量、传递变量 编写一个顶点着色器 可运作的示例 编写一个片段着色器 Sampler 可运作的示例 技巧与难题 发光颜色 阴影 编译器优化问题 跨帧储存信息 着色器启用顺序 Blit 缩放问题 读取玩家输入 旁观死亡技巧 工具和参考 GLSL SpiderEye 着色器示例</summary></entry></feed>

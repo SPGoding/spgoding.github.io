@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>原版着色器指导 | spgoding.com</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="原版着色器指导" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="原版着色器指导 前言 梗概：着色器的组成部分 开始 创建一个「后处理」JSON Targets Passes Passes.Auxtargets Passes.Uniforms 可运作的示例 创建一个「着色器程序」JSON 可运作的示例 GLSL 基础 数据类型 着色器程序工作流程 属性、全局量、传递变量 编写一个顶点着色器 可运作的示例 编写一个片段着色器 Sampler 可运作的示例 技巧与难题 发光颜色 阴影 编译器优化问题 跨帧储存信息 着色器启用顺序 Blit 缩放问题 读取玩家输入 旁观死亡技巧 工具和参考 GLSL SpiderEye 着色器示例" />
+<meta property="og:description" content="原版着色器指导 前言 梗概：着色器的组成部分 开始 创建一个「后处理」JSON Targets Passes Passes.Auxtargets Passes.Uniforms 可运作的示例 创建一个「着色器程序」JSON 可运作的示例 GLSL 基础 数据类型 着色器程序工作流程 属性、全局量、传递变量 编写一个顶点着色器 可运作的示例 编写一个片段着色器 Sampler 可运作的示例 技巧与难题 发光颜色 阴影 编译器优化问题 跨帧储存信息 着色器启用顺序 Blit 缩放问题 读取玩家输入 旁观死亡技巧 工具和参考 GLSL SpiderEye 着色器示例" />
+<link rel="canonical" href="https://spgoding.com/translation/2021/03/12/guite-to-vanilla-shader.html" />
+<meta property="og:url" content="https://spgoding.com/translation/2021/03/12/guite-to-vanilla-shader.html" />
+<meta property="og:site_name" content="spgoding.com" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-03-12T16:35:00+00:00" />
+<script type="application/ld+json">
+{"headline":"原版着色器指导","description":"原版着色器指导 前言 梗概：着色器的组成部分 开始 创建一个「后处理」JSON Targets Passes Passes.Auxtargets Passes.Uniforms 可运作的示例 创建一个「着色器程序」JSON 可运作的示例 GLSL 基础 数据类型 着色器程序工作流程 属性、全局量、传递变量 编写一个顶点着色器 可运作的示例 编写一个片段着色器 Sampler 可运作的示例 技巧与难题 发光颜色 阴影 编译器优化问题 跨帧储存信息 着色器启用顺序 Blit 缩放问题 读取玩家输入 旁观死亡技巧 工具和参考 GLSL SpiderEye 着色器示例","dateModified":"2021-03-12T16:35:00+00:00","datePublished":"2021-03-12T16:35:00+00:00","url":"https://spgoding.com/translation/2021/03/12/guite-to-vanilla-shader.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://spgoding.com/translation/2021/03/12/guite-to-vanilla-shader.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://spgoding.com/feed.xml" title="spgoding.com" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">spgoding.com</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/contact/">Contact</a><a class="page-link" href="/i_have_a_lot_of_money/">Sponsor</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">原版着色器指导</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-03-12T16:35:00+00:00" itemprop="datePublished">Mar 12, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul>
+  <li><a href="#原版着色器指导">原版着色器指导</a></li>
+  <li><a href="#前言">前言</a></li>
+  <li><a href="#梗概着色器的组成部分">梗概：着色器的组成部分</a></li>
+  <li><a href="#开始">开始</a></li>
+  <li><a href="#创建一个后处理json">创建一个「后处理」JSON</a>
+    <ul>
+      <li><a href="#targets">Targets</a></li>
+      <li><a href="#passes">Passes</a>
+        <ul>
+          <li><a href="#passesauxtargets">Passes.Auxtargets</a></li>
+          <li><a href="#passesuniforms">Passes.Uniforms</a></li>
+        </ul>
+      </li>
+      <li><a href="#可运作的示例">可运作的示例</a></li>
+    </ul>
+  </li>
+  <li><a href="#创建一个着色器程序json">创建一个「着色器程序」JSON</a>
+    <ul>
+      <li><a href="#可运作的示例-1">可运作的示例</a></li>
+    </ul>
+  </li>
+  <li><a href="#glsl-基础">GLSL 基础</a>
+    <ul>
+      <li><a href="#数据类型">数据类型</a></li>
+      <li><a href="#着色器程序工作流程">着色器程序工作流程</a></li>
+      <li><a href="#属性全局量传递变量">属性、全局量、传递变量</a></li>
+    </ul>
+  </li>
+  <li><a href="#编写一个顶点着色器">编写一个顶点着色器</a>
+    <ul>
+      <li><a href="#可运作的示例-2">可运作的示例</a></li>
+    </ul>
+  </li>
+  <li><a href="#编写一个片段着色器">编写一个片段着色器</a>
+    <ul>
+      <li><a href="#sampler">Sampler</a></li>
+      <li><a href="#可运作的示例-3">可运作的示例</a></li>
+    </ul>
+  </li>
+  <li><a href="#技巧与难题">技巧与难题</a>
+    <ul>
+      <li><a href="#发光颜色">发光颜色</a></li>
+      <li><a href="#阴影">阴影</a></li>
+      <li><a href="#编译器优化问题">编译器优化问题</a></li>
+      <li><a href="#跨帧储存信息">跨帧储存信息</a></li>
+      <li><a href="#着色器启用顺序">着色器启用顺序</a></li>
+      <li><a href="#blit-缩放问题">Blit 缩放问题</a></li>
+      <li><a href="#读取玩家输入">读取玩家输入</a></li>
+      <li><a href="#旁观死亡技巧">旁观死亡技巧</a></li>
+    </ul>
+  </li>
+  <li><a href="#工具和参考">工具和参考</a>
+    <ul>
+      <li><a href="#glsl">GLSL</a></li>
+      <li><a href="#spidereye">SpiderEye</a></li>
+      <li><a href="#着色器示例">着色器示例</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="原版着色器指导">原版着色器指导</h1>
+
+<ul>
+  <li>原　文: <a href="https://docs.google.com/document/d/15TOAOVLgSNEoHGzpNlkez5cryH3hFF3awXL5Py81EMk/edit#">Guide to vanilla shaders</a></li>
+  <li>原作者: SirBenet</li>
+  <li>鸣　谢: 森林蝙蝠 - 提供了各种专业名词的专业机翻</li>
+  <li>截止翻译时，原文最后更新: 2021-03-10 for Minecraft 21w10a (WIP)</li>
+</ul>
+
+<p><strong>授权</strong></p>
+
+<p><img src="https://i.loli.net/2019/09/23/pR95MBJQdq7Ooth.png" alt="image.png" /></p>
+
+<h1 id="前言">前言</h1>
+
+<p>原版 Minecraft 有着许多 GLSL 着色器。这些着色器可以直接通过资源包更改，进而嵌在地图里，或者是在玩家进入服务器时自动启用。</p>
+
+<p>着色器以 OpenGL Shading Language（GLSL）语言编写，这是一个类似 C 的语言，支持浮点数、向量、矩阵，以及函数、条件、循环以及其他各种你能想到的编程语言应有的特性。</p>
+
+<p><strong>后处理</strong>着色器在 1.7 首次加入，会在游戏已经渲染好画面以后再起效。它们能够接受整个屏幕的像素作为输入，然后逐像素地输出。除了一些有限的特例以外，着色器所能接受到的唯一数据就是正显示在屏幕上的内容。以下是一些原版自带的后处理着色器示例：</p>
+
+<p><img src="https://i.loli.net/2019/09/23/yBqZsxOk2SAgfPd.png" alt="image.png" />  <br />
+“Pencil”</p>
+
+<p><img src="https://i.loli.net/2019/09/23/i5Kldntc4s8y9DE.png" alt="image.png" />  <br />
+“Bits”</p>
+
+<p><img src="https://i.loli.net/2019/09/23/ebnrL8aI2V9sfUQ.png" alt="image.png" />  <br />
+“NTSC”</p>
+
+<p>后处理着色器在以下情况下会被使用：</p>
+<ul>
+  <li>以特定生物的视角旁观时（苦力怕、蜘蛛、末影人）</li>
+  <li>屏幕中有具有发光状态效果的实体时</li>
+  <li>选择了「极佳」图像品质时</li>
+</ul>
+
+<p><strong>核心</strong>着色器在 1.17 加入 —— 所有你能在屏幕上看到的东西都是由一个核心着色器渲染的。以下是一些通过修改核心着色器所能达到的效果：</p>
+
+<p><img src="https://i.loli.net/2021/03/13/V5evOE79Ylujgfc.png" alt="core1-onnowhere.png" />  <br />
+(Onnowhere)</p>
+
+<p><img src="https://i.loli.net/2021/03/13/tIRa8odiNeyTQWw.png" alt="core2-aeldrion.png" />  <br />
+(Aeldrion)</p>
+
+<p><img src="https://i.loli.net/2021/03/13/14Z2rXpTxcmvOiN.png" alt="core3-onnowhere.png" />  <br />
+(Onnowhere)</p>
+
+<h1 id="梗概着色器的组成部分">梗概：着色器的组成部分</h1>
+
+<p>后处理着色器使用储存在 <code class="language-plaintext highlighter-rouge">assets/minecraft/shaders/post</code> 目录下的 <a href="#创建一个后处理json">「后处理文件」（post）</a> 定义由一系列「着色器程序」（program）组成的渲染管线（pipeline）。下图展示了由 <code class="language-plaintext highlighter-rouge">creeper.json</code> 定义的管线：</p>
+
+<p><img src="https://i.loli.net/2019/09/24/Ewl8WJZUIaFPV7G.png" alt="creeper.json-pipeline.png" /></p>
+
+<p><a href="#创建一个着色器程序json">「着色器程序」</a>（例如 <code class="language-plaintext highlighter-rouge">color_convolve</code>）应当被定义在另一个 JSON 文件中（储存在 <code class="language-plaintext highlighter-rouge">shaders/program</code> 目录下）。该文件主要包括：</p>
+<ul>
+  <li>一个要使用的「顶点着色器」（vertex shader）的路径（一个以 GLSL 语言编写的 <code class="language-plaintext highlighter-rouge">.vsh</code> 文件）</li>
+  <li>一个要使用的「片段着色器」（fragment shader）的路径（一个以 GLSL 语言编写的 <code class="language-plaintext highlighter-rouge">.fsh</code> 文件）</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">shaders/core</code> 下则储存了由游戏（而非上面提到的后处理管线）直接调用的着色器程序。</p>
+
+<p><a href="#编写一个顶点着色器">「顶点着色器」</a>会对每个顶点起效，将顶点的位置作为输入，并产生一个经过变换的位置作为输出。一个扭曲屏幕的顶点着色器示例见下：</p>
+
+<p><img src="https://i.loli.net/2019/09/23/suc3nB2gvitdZ6I.png" alt="image.png" /></p>
+
+<p><a href="#编写一个片段着色器">「片段着色器」</a>会对每个像素起效，并逐像素产生输出层。一个不改变任何内容的片段着色器将直接把输入的像素原样产生。一个交换红色和蓝色色道的片段着色器示例见下：</p>
+
+<p><img src="https://i.loli.net/2019/09/23/QY4Net5fjFMHExJ.png" alt="image.png" /></p>
+
+<h1 id="开始">开始</h1>
+
+<ol>
+  <li><a href="https://minecraft-zh.gamepedia.com/%E6%95%99%E7%A8%8B/%E5%88%B6%E4%BD%9C%E8%B5%84%E6%BA%90%E5%8C%85">建立一个资源包</a></li>
+  <li>在里面建好以下文件夹：
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">assets/minecraft/shaders/post</code></li>
+      <li><code class="language-plaintext highlighter-rouge">assets/minecraft/shaders/program</code></li>
+    </ul>
+  </li>
+</ol>
+
+<p>如果你想要参考原版的着色器，可以直接从游戏 jar 文件里面解压：<code class="language-plaintext highlighter-rouge">%APPDATA%/.minecraft/versions/1.16.5/1.16.5.jar/assets/minecraft/shaders/</code>。</p>
+
+<p>你可能还需要给你用的编辑器装一个 GLSL 的语法高亮插件。</p>
+
+<p>打开<strong>游戏日志</strong> —— 任何着色器的错误都会显示在这里。</p>
+
+<p><img src="https://i.loli.net/2019/09/23/5bxNJBGdg726zvn.png" alt="image.png" /></p>
+
+<p><img src="https://i.loli.net/2019/09/23/5yjrHDIwMWt1fm2.png" alt="image.png" /></p>
+
+<h1 id="创建一个后处理json">创建一个「后处理」JSON</h1>
+
+<p>后处理 JSON 文件应该放置在 <code class="language-plaintext highlighter-rouge">assets/minecraft/shaders/post</code> 目录当中，并且命名为：</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">creeper.json</code> 将在以苦力怕视角旁观时启用</li>
+  <li><code class="language-plaintext highlighter-rouge">invert.json</code> 将在以末影人视角旁观时启用</li>
+  <li><code class="language-plaintext highlighter-rouge">spider.json</code> 将在以蜘蛛视角旁观时启用</li>
+  <li><code class="language-plaintext highlighter-rouge">entity_outline.json</code> 将在屏幕中有具有发光状态效果的实体时启用</li>
+  <li><code class="language-plaintext highlighter-rouge">transparency.json</code> 将在玩家启用了「极佳」图像品质时启用</li>
+</ul>
+
+<p>我们只能通过替换以上五个现存的文件来自定义后处理着色器。</p>
+
+<p>后处理文件由两个数组构成：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"passes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="targets">Targets</h2>
+
+<p><code class="language-plaintext highlighter-rouge">"targets"</code> 数组声明了一些<strong>帧缓冲（frame buffers）</strong> —— 把它们想象成我们可以往上面读取或写入像素的画布。该数组中的每一项都可以是以下两者之一：</p>
+<ul>
+  <li>一个有着 <code class="language-plaintext highlighter-rouge">"name"</code>（名称，字符串）、<code class="language-plaintext highlighter-rouge">"width"</code>（宽度，整型数字）、<code class="language-plaintext highlighter-rouge">"height"</code>（高度，整型数字）三个参数的对象。这三个参数描述了帧缓冲。</li>
+  <li>一个字符串名称。宽度和高度将会默认为游戏窗口的宽度和高度。</li>
+</ul>
+
+<p>你可以在声明帧缓冲时随意混用两种方式：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+   </span><span class="p">{</span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"baz"</span><span class="p">,</span><span class="w"> </span><span class="nl">"width"</span><span class="p">:</span><span class="mi">73</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span><span class="w">
+   </span><span class="s2">"qux"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>除了这些手动声明的缓冲层，还有一些特殊的、预先定义好的缓冲。这些缓冲里面会自带内容，不需要声明就可以直接使用。它们是：</p>
+
+<ul>
+  <li>
+    <p>为<strong>发光着色器</strong>准备的、预先填充好的特殊缓冲区</p>
+
+    <p><img src="https://i.loli.net/2019/09/23/nsHvkReqrzWlwAK.png" alt="image.png" />  <br />
+  <code class="language-plaintext highlighter-rouge">minecraft:main</code>  <br />
+  没有水、方块实体和其他一些东西</p>
+
+    <p><img src="https://i.loli.net/2019/09/23/kCLdXx63pQfqn51.png" alt="image.png" />  <br />
+  <code class="language-plaintext highlighter-rouge">final</code>  <br />
+  纯色的实体。颜色是该实体所在队伍的颜色</p>
+  </li>
+  <li>
+    <p>为<strong>实体视角着色器</strong>准备的、预先填充好的特殊缓冲区</p>
+
+    <p><img src="https://i.loli.net/2019/09/23/p2fI9tuVwUGJOng.png" alt="image.png" />  <br />
+  <code class="language-plaintext highlighter-rouge">minecraft:main</code>  <br />
+  所有内容都已渲染完成</p>
+  </li>
+</ul>
+
+<h2 id="passes">Passes</h2>
+
+<p><code class="language-plaintext highlighter-rouge">"passes"</code> 数组定义了一系列的按顺序执行的步骤。每一个步骤都包含一个输入缓冲层（<code class="language-plaintext highlighter-rouge">"in_target"</code>），并运行一个着色器程序（<code class="language-plaintext highlighter-rouge">"name"</code>），来将数据写入到输出缓冲层（<code class="language-plaintext highlighter-rouge">"out_target"</code>）当中。一个着色器程序不能把数据输出到它读取的那个缓冲层。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"passes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prog1"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:main"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prog2"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"auxtargets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">],</span><span class="w">
+       </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blit"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"uniforms"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">},</span><span class="w">
+       </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bar"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:main"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">"blit"</code> 是一个不改变任何内容的着色器程序，它只是简单地把数据从一个缓冲复制到另一个缓冲当中（注意：<a href="#Blit 缩放问题">在不同大小的缓冲之间复制数据时会有问题</a>）。</p>
+
+<p>你想要显示的内容应当最终输出到 <code class="language-plaintext highlighter-rouge">"minecraft:main"</code> 缓冲当中（如果是发光着色器，还可以进一步修改 <code class="language-plaintext highlighter-rouge">final</code> 缓冲，该缓冲的内容<a href="#着色器启用顺序">会覆盖到一切内容上面</a>）</p>
+
+<h3 id="passesauxtargets">Passes.Auxtargets</h3>
+
+<p>可选的 <code class="language-plaintext highlighter-rouge">"auxtargets"</code> 数组提供了一系列补充的缓冲或图片，使得着色器程序能够<strong>读取</strong>它们。在 auxtargets 数组中的对象应当包含：</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"id"</code> - 指定一个现存缓冲的名称（即定义在 <code class="language-plaintext highlighter-rouge">"targets"</code> 中的名称），<strong>或者</strong>是一张位于资源包 <code class="language-plaintext highlighter-rouge">minecraft/textures/effect</code> 目录下的图片的文件名。</li>
+  <li><code class="language-plaintext highlighter-rouge">"name"</code> - 能让你给该缓冲或图片分配任意的一个名称，使得着色器程序的 GLSL 代码中能够访问它们。</li>
+  <li>如果指定的是一张<strong>图片</strong>，还必须指定以下参数：
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">"width"</code> - 以像素为单位的图片宽度（<em>似乎没有实际效果？</em>）</li>
+      <li><code class="language-plaintext highlighter-rouge">"height"</code> - 以像素为单位的图片高度（<em>似乎没有实际效果？</em>）</li>
+      <li><code class="language-plaintext highlighter-rouge">"bilinear"</code> - 指定该图片被采样时使用的缩放算法</li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>缩放算法：  <br />
+<img src="https://i.loli.net/2019/09/28/sAapzHChyGuo5e9.png" alt="image.png" /></p>
+</blockquote>
+
+<p>一个示例 auxtargets 数组如下，它使得着色器程序能够访问 <code class="language-plaintext highlighter-rouge">qux</code> 缓冲，以及一张叫作 <code class="language-plaintext highlighter-rouge">abc.png</code> 的图片：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"auxtargets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"qux"</span><span class="p">,</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"QuxSampler"</span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"abc"</span><span class="p">,</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"ImageSampler"</span><span class="p">,</span><span class="w"> </span><span class="nl">"width"</span><span class="p">:</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="p">:</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="nl">"bilinear"</span><span class="p">:</span><span class="kc">false</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="passesuniforms">Passes.Uniforms</h3>
+
+<p>可选的 <code class="language-plaintext highlighter-rouge">"uniforms"</code> 参数能够向着色器程序传递一个浮点数数组。下方的示例使用 uniforms 为 <code class="language-plaintext highlighter-rouge">blur</code> 着色器程序指定了一个半径（radius）和方向（<strong>dir</strong>ection）：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blur"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"swap"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:main"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"uniforms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlurDir"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Radius"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="p">]</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="可运作的示例">可运作的示例</h2>
+
+<p>以下是一个可以正常运作的完整的后处理 JSON 文件。它添加了一个 <a href="https://i.loli.net/2021/03/13/iygSHTpYO7E93dw.png">“notch” 抖动效果</a>，并减少了颜色饱和度。</p>
+
+<p><img src="https://i.loli.net/2019/09/28/tV4AmDFdT7hyHcv.png" alt="image.png" /></p>
+
+<p><a href="https://drive.google.com/file/d/1lEW6WRHa0xN041qNNhr2XvpspiXK7A6g/view?usp=sharing">assets/minecraft/shaders/post/spider.json</a></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"targets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="s2">"swap"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"passes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"notch"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:main"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"swap"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"auxtargets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+               </span><span class="p">{</span><span class="w">
+                   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DitherSampler"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dither"</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+                   </span><span class="nl">"bilinear"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+           </span><span class="p">]</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+           </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"color_convolve"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"swap"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:main"</span><span class="p">,</span><span class="w">
+           </span><span class="nl">"uniforms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+               </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Saturation"</span><span class="p">,</span><span class="w"> </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+           </span><span class="p">]</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="创建一个着色器程序json">创建一个「着色器程序」JSON</h1>
+
+<p>着色器程序 JSON 文件应该放置在 <code class="language-plaintext highlighter-rouge">assets/minecraft/shaders/program</code> 文件夹中。</p>
+
+<p>可以使用任何名称（只要遵守正常资源包的文件命名规则即可，例如没有大写字母什么的）。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"blend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"vertex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"samplers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"uniforms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">"vertex"</code> 指定了将要使用的<a href="#编写一个顶点着色器">顶点着色器</a> <code class="language-plaintext highlighter-rouge">.vsh</code> 文件的文件名。</p>
+
+<p><code class="language-plaintext highlighter-rouge">"fragment"</code> 指定了将要使用的<a href="#编写一个片段着色器">片段着色器</a> <code class="language-plaintext highlighter-rouge">.fsh</code> 文件的文件名。</p>
+
+<p><code class="language-plaintext highlighter-rouge">"attributes"</code> 是一个字符串数组，指定顶点的哪些属性能够被顶点着色器访问到。目前只能写 <code class="language-plaintext highlighter-rouge">"Position"</code>（位置）。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Position"</span><span class="w"> </span><span class="p">]</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">"samplers"</code> 定义了片段着色器想要访问缓冲需要用到的变量名（采样器）。<code class="language-plaintext highlighter-rouge">"DiffuseSampler"</code> 是被自动给予 <code class="language-plaintext highlighter-rouge">"intarget"</code> 中定义的缓冲的采样器。其他的任何名字都需要与你在 <a href="#Passes.Auxtargets">后处理文件的 <code class="language-plaintext highlighter-rouge">"auxtargets"</code></a> 中指定的一致。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"samplers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DiffuseSampler"</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DitherSampler"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">"uniforms"</code> 定义了各种<em>全局量</em>（又译「统一量」。对每个顶点或像素都保持不变的值）的名称、类型和默认值。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"uniforms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProjMat"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"matrix4x4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InSize"</span><span class="p">,</span><span class="w">  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OutSize"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BlurDir"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Radius"</span><span class="p">,</span><span class="w">  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">  </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">"name"</code> 字符串定义了在 GLSL 代码中或者<a href="#Passes.Uniforms">在向该着色器程序的该全局量传值时</a>用的名称。游戏自动给了一些特殊的全局量：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"Time"</code> - 0 到 1 的一个值，表示在一秒内的时间，每秒自动重置</li>
+  <li><code class="language-plaintext highlighter-rouge">"InSize"</code> - 以像素为单位的输入缓冲（input buffer）的宽度和高度</li>
+  <li><code class="language-plaintext highlighter-rouge">"OutSize"</code> - 以像素为单位的输出缓冲（output buffer）的宽度和高度</li>
+  <li><code class="language-plaintext highlighter-rouge">"ProjMat"</code> - 由顶点着色器使用的投影矩阵（projection matrix）</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">"values"</code> 应为一个浮点数数组，而 <code class="language-plaintext highlighter-rouge">"type"</code> 则定义了这些浮点数会在 GLSL 代码中被解析为的<a href="#数据类型">数据类型</a>：</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">"float"</code> - 一个 <code class="language-plaintext highlighter-rouge">float</code> 或 <code class="language-plaintext highlighter-rouge">vec2</code>/<code class="language-plaintext highlighter-rouge">vec3</code>/<code class="language-plaintext highlighter-rouge">vec4</code>，具体取决于在 <code class="language-plaintext highlighter-rouge">"values"</code> 中指定的数字个数</li>
+  <li><code class="language-plaintext highlighter-rouge">"matrix4x4"</code> - 一个由 <code class="language-plaintext highlighter-rouge">"values"</code> 中指定的 16 个值产生的 <code class="language-plaintext highlighter-rouge">mat4</code></li>
+  <li><code class="language-plaintext highlighter-rouge">"matrix3x3"</code> - <em>可用的类型，但仍然需要输入 16 个值？</em></li>
+  <li><code class="language-plaintext highlighter-rouge">"matrix2x2"</code> - <em>可用的类型，但仍然需要输入 16 个值？</em></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">"blend"</code> 理论上定义了着色器程序的输出应当怎样与目标缓冲（destination buffer）上已有的内容合并，<em>但目前好像没有效果。</em></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"blend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"func"</span><span class="p">:</span><span class="w"> </span><span class="s2">"add"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"srcrgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"dstrgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zero"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>更多关于这些模式本应怎样运作的信息可以查看：khronos.org/opengl/wiki/Blending</p>
+
+<h2 id="可运作的示例-1">可运作的示例</h2>
+
+<p>以下是一个可以正常运作的完整的着色器程序 JSON 文件。这是原版的 “wobble” 着色器，未经修改。</p>
+
+<p><a href="https://drive.google.com/file/d/1GssoJB9wQrj-POC_DZ--Rewmfvz9QvEq/view?usp=sharing">assets/minecraft/shaders/program/wobble.json</a></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"blend"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"func"</span><span class="p">:</span><span class="w"> </span><span class="s2">"add"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"srcrgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"one"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dstrgb"</span><span class="p">:</span><span class="w"> </span><span class="s2">"zero"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"vertex"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sobel"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fragment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wobble"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"Position"</span><span class="w"> </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"samplers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DiffuseSampler"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"uniforms"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ProjMat"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"matrix4x4"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> 
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> 
+                      </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> 
+                      </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> 
+                      </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InSize"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OutSize"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Time"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Frequency"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">512.0</span><span class="p">,</span><span class="w"> </span><span class="mf">288.0</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WobbleAmount"</span><span class="p">,</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"float"</span><span class="p">,</span><span class="w"> </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+          </span><span class="nl">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mf">0.002</span><span class="p">,</span><span class="w"> </span><span class="mf">0.002</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="glsl-基础">GLSL 基础</h1>
+
+<p>该部分假设读者已经熟悉了基本的编程概念（变量、函数、循环等），并且主要讲解 GLSL 特有的特性。如果你之前从来没有接触过编程，我不建议你用 GLSL 上手。</p>
+
+<p>有关核心语言的更多信息：khronos.org/opengl/wiki/Core_Language_(GLSL)</p>
+
+<p>有关所有可用函数的详细文档：docs.gl/sl4/all</p>
+
+<blockquote>
+  <p><strong>注意</strong>： 原版 jar 文件中的着色器是用的 GLSL 版本是 110，本文为保持一致也将使用该版本。不过，由于 <a href="https://help.mojang.com/customer/en/portal/articles/325948-minecraft-java-edition-system-requirements">Minecraft 需要 OpenGL 4.4</a>，你可以放心地使用最高到 440 版本的 GLSL。版本需要在 GLSL 代码的开头声明（可以看示例）。</p>
+</blockquote>
+
+<h2 id="数据类型">数据类型</h2>
+
+<blockquote>
+  <h3 id="标量">标量</h3>
+
+  <p><code class="language-plaintext highlighter-rouge">bool</code>: 布尔值 <code class="language-plaintext highlighter-rouge">true</code> / <code class="language-plaintext highlighter-rouge">false</code>  <br />
+<code class="language-plaintext highlighter-rouge">int</code> / <code class="language-plaintext highlighter-rouge">unit</code>: 有符号 / 无符号 32 位整型数字  <br />
+<code class="language-plaintext highlighter-rouge">float</code> / <code class="language-plaintext highlighter-rouge">double</code>: 单精度 / 双精度浮点数</p>
+
+  <h3 id="向量">向量</h3>
+
+  <p><code class="language-plaintext highlighter-rouge">bve</code><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong>、<code class="language-plaintext highlighter-rouge">ive</code><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong>、<code class="language-plaintext highlighter-rouge">uvec</code><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong>、<code class="language-plaintext highlighter-rouge">vec</code><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong>、<code class="language-plaintext highlighter-rouge">dvec</code><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong>: 分别代表由 &gt; <strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong> 个 <code class="language-plaintext highlighter-rouge">bool</code>、<code class="language-plaintext highlighter-rouge">int</code>、<code class="language-plaintext highlighter-rouge">uint</code>、<code class="language-plaintext highlighter-rouge">float</code> 或 <code class="language-plaintext highlighter-rouge">double</code> 组成的向量</p>
+
+  <p><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong> 必须为 2、3 或 4。</p>
+
+  <h3 id="矩阵">矩阵</h3>
+
+  <p><code class="language-plaintext highlighter-rouge">mat</code><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong>: 由 <code class="language-plaintext highlighter-rouge">float</code> 组成的矩阵，大小为 <strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong> × <strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong>  <br />
+<code class="language-plaintext highlighter-rouge">mat</code><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong><code class="language-plaintext highlighter-rouge">x</code><strong><em><code class="language-plaintext highlighter-rouge">m</code></em></strong>: 由 <code class="language-plaintext highlighter-rouge">float</code> 组成的矩阵，大小为 <strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong> × <strong><em><code class="language-plaintext highlighter-rouge">m</code></em></strong>  \</p>
+
+  <p><strong><em><code class="language-plaintext highlighter-rouge">n</code></em></strong> 和 <strong><em><code class="language-plaintext highlighter-rouge">m</code></em></strong> 都必须为 2、3 或 4。</p>
+
+  <p>矩阵是<strong>列优先</strong>的（3×2 = 3 列，2 行）。</p>
+</blockquote>
+
+<p>在 GLSL 里最常处理的就是 <code class="language-plaintext highlighter-rouge">float</code> 了。</p>
+
+<p>想要构造向量和矩阵的话，可以任意组合其他的标量 / 向量：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">vec2</span> <span class="n">v2</span> <span class="o">=</span> <span class="kt">vec2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">);</span>
+<span class="kt">vec3</span> <span class="n">v3</span> <span class="o">=</span> <span class="kt">vec3</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="p">);</span>
+<span class="kt">mat4</span> <span class="n">m3</span> <span class="o">=</span> <span class="kt">mat3</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">,</span>
+               <span class="n">v3</span><span class="p">,</span>
+               <span class="n">v2</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>请注意，列优先的矩阵可能有点反直觉：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">mat2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span>   <span class="c1">// 第一列（不是第一行！）</span>
+     <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>  <span class="c1">// 第二列</span>
+</code></pre></div></div>
+
+<p>除了普通的[索引]以外，<strong>混合</strong> <code class="language-plaintext highlighter-rouge">xyzw</code> 或 <code class="language-plaintext highlighter-rouge">rgba</code> 是种方便的获取某个向量的 1 个或多个元素的方式：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">vec3</span> <span class="n">v3</span> <span class="o">=</span> <span class="kt">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">v3</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>     <span class="c1">// == 0.1</span>
+<span class="n">v3</span><span class="p">.</span><span class="n">yzyz</span><span class="p">;</span>  <span class="c1">// == vec4(0.2, 0.3, 0.2, 0.3)</span>
+</code></pre></div></div>
+
+<h2 id="着色器程序工作流程">着色器程序工作流程</h2>
+
+<p>顶点着色器或片段着色器都有一个 <code class="language-plaintext highlighter-rouge">void main()</code> 函数，作为代码的起始点。该函数没有任何参数，也不返回任何东西，它只应更新一个现存的特殊变量（<code class="language-plaintext highlighter-rouge">gl_Position</code> 或 <code class="language-plaintext highlighter-rouge">gl_FragColor</code>，将在下方解释。）</p>
+
+<p>由于 GLSL 代码是在无法任意写入内存的硬件上执行的，因此 GLSL 不支持递归操作。不过循环是可以的：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="属性全局量传递变量">属性、全局量、传递变量</h2>
+
+<blockquote>
+  <p>如果你选择了更高版本的 GLSL，该部分在 GLSL 140 及以上版本有所改动。见：https://www.khronos.org/opengl/wiki/Type_Qualifier_(GLSL)#Shader_stage_inputs_and_outputs。</p>
+</blockquote>
+
+<p>全局变量可以被声明为 <code class="language-plaintext highlighter-rouge">attribute</code>（属性）、<code class="language-plaintext highlighter-rouge">uniform</code>（全局量）或 <code class="language-plaintext highlighter-rouge">varying</code>（传递变量）。</p>
+
+<p><code class="language-plaintext highlighter-rouge">attributes</code>（属性）只能由顶点着色器读取，它自动包含了当前顶点的一些信息。对于 Minecraft 的着色器来说，它只包含了顶点的 <code class="language-plaintext highlighter-rouge">Position</code>（位置）属性。</p>
+
+<p><code class="language-plaintext highlighter-rouge">uniform</code>（全局量）可以被顶点着色器与片段着色器读取，对所有的顶点或像素都会保持恒定不变。它们的值可以通过后处理 JSON 文件传入，否则将会使用在着色器程序 JSON 文件中定义的默认值。</p>
+
+<p><code class="language-plaintext highlighter-rouge">varying</code>（传递变量）由顶点着色器声明并赋值，然后可在片段着色器中被读取。这些值会在顶点间<strong>插值</strong>计算出来。举个例子：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">varying</span> <span class="kt">vec2</span> <span class="n">texCoord</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="https://i.loli.net/2019/09/28/c7WE8yQUFjdZoDO.png" alt="image.png" /></p>
+
+<blockquote>
+  <p>编辑：从 21w10a 起，原版的着色器从 GLSL 版本 120 升级到了 150。<code class="language-plaintext highlighter-rouge">varying</code> 和 <code class="language-plaintext highlighter-rouge">attribute</code> 现在变成了 <code class="language-plaintext highlighter-rouge">in</code> 和 <code class="language-plaintext highlighter-rouge">out</code>。  <br />
+对于顶点着色器，<code class="language-plaintext highlighter-rouge">attribute</code> 应该改为 <code class="language-plaintext highlighter-rouge">in</code>，<code class="language-plaintext highlighter-rouge">varying</code> 应该改为 <code class="language-plaintext highlighter-rouge">out</code>。  <br />
+对于片段着色器，<code class="language-plaintext highlighter-rouge">varying</code> 应该改为 <code class="language-plaintext highlighter-rouge">in</code>，而特殊值 <code class="language-plaintext highlighter-rouge">fragColor</code> 应该改为 <code class="language-plaintext highlighter-rouge">out</code>。  <br />
+<code class="language-plaintext highlighter-rouge">uniform</code> 保持不变。  <br />
+可以查看原版 jar 文件中的着色器查看示例。  <br />
+我会在 1.17 更新后的某些时间更新本篇教程。</p>
+</blockquote>
+
+<h1 id="编写一个顶点着色器">编写一个顶点着色器</h1>
+
+<p>顶点着色器会在每个顶点上运行，以对顶点进行变换。通常来讲这指的是世界几何体的每一个顶点 —— 但是在 Minecraft 中，它指的只是缓冲四个角上的顶点。这使得目前的顶点着色器十分受限。不对顶点缓冲器做任何修改是很常见的做法（绝大多数原版的着色器程序都重复使用了 <code class="language-plaintext highlighter-rouge">sobel.vsh</code>）。</p>
+
+<p><img src="https://i.loli.net/2019/09/28/xCswyYEjhgpQPAi.png" alt="image.png" /></p>
+
+<blockquote>
+  <p>编辑：从 21w10a 起，核心着色器引入了真正的顶点着色器。以下的图片现在可以实现了。本节有待更新。</p>
+</blockquote>
+
+<p>顶点着色器的主要工作是用一个「投影矩阵」乘坐标。一般来讲这会把一个处于<a href="https://upload.wikimedia.org/wikipedia/commons/0/02/ViewFrustum.svg">视锥</a>内的顶点转换到一个 2×2×2 的立方体中，这样能够更方便地拍扁到屏幕上：</p>
+
+<p><img src="https://i.loli.net/2019/09/28/p39hGSMJB2VfcnX.png" alt="image.png" /></p>
+
+<p>不过在 Minecraft 中，顶点着色器直接就从一个处于 3 维空间内的平面开始，并且直接变换四个角上的顶点，而不是变换任何实际上的几何体的顶点。Minecraft 使用 <code class="language-plaintext highlighter-rouge">ProjMat</code> 这样一个特殊的全局量用来计算，虽然这完全可以用 4 个硬编码（hardcoded）的特例来替代（因为这些顶点总是会被计算到相同的位置上）<a href="#Blit 缩放问题">*</a>。</p>
+
+<p><img src="https://i.loli.net/2019/09/28/4EAisOGleYaLJHS.png" alt="image.png" /></p>
+
+<p>顶点的初始位置可以从 <code class="language-plaintext highlighter-rouge">Position</code> 属性获取，而计算结果应当储存到特殊的 <code class="language-plaintext highlighter-rouge">gl_Position</code> 变量当中（这两者都是 <code class="language-plaintext highlighter-rouge">vec4</code>）。</p>
+
+<p>顶点着色器还定义并赋值了一些有用的传递变量，以供片段着色器使用：</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">texCoord</code>: 范围从 <code class="language-plaintext highlighter-rouge">0,0</code>（左下角）到 <code class="language-plaintext highlighter-rouge">1,1</code>（右上角）的坐标。</li>
+  <li><code class="language-plaintext highlighter-rouge">oneTexel</code>: 在 <code class="language-plaintext highlighter-rouge">texCoord</code> 所表示的坐标中，一个像素所占的大小。例如：对于一个像素数为 4×2 的输入缓冲，其中每个像素的大小为 0.25×0.5（1/4 的高度，1/2 的宽度）</li>
+</ul>
+
+<h2 id="可运作的示例-2">可运作的示例</h2>
+
+<p><code class="language-plaintext highlighter-rouge">sobel.vsh</code> 顶点着色器，它被绝大多数原版的着色器程序所调用。它并没有什么特别涉及到 sobel（索伯算子？）的东西 —— 这么命名可能只是因为它是 Mojang 第一个使用的着色器程序。</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#version 110
+</span>
+<span class="k">attribute</span> <span class="kt">vec4</span> <span class="n">Position</span><span class="p">;</span>
+
+<span class="k">uniform</span> <span class="kt">mat4</span> <span class="n">ProjMat</span><span class="p">;</span>
+<span class="k">uniform</span> <span class="kt">vec2</span> <span class="n">InSize</span><span class="p">;</span>
+<span class="k">uniform</span> <span class="kt">vec2</span> <span class="n">OutSize</span><span class="p">;</span>
+
+<span class="k">varying</span> <span class="kt">vec2</span> <span class="n">texCoord</span><span class="p">;</span>
+<span class="k">varying</span> <span class="kt">vec2</span> <span class="n">oneTexel</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">vec4</span> <span class="n">outPos</span> <span class="o">=</span> <span class="n">ProjMat</span> <span class="o">*</span> <span class="kt">vec4</span><span class="p">(</span><span class="n">Position</span><span class="p">.</span><span class="n">xy</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+    <span class="nb">gl_Position</span> <span class="o">=</span> <span class="kt">vec4</span><span class="p">(</span><span class="n">outPos</span><span class="p">.</span><span class="n">xy</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">oneTexel</span> <span class="o">=</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="o">/</span> <span class="n">InSize</span><span class="p">;</span>
+
+    <span class="n">texCoord</span> <span class="o">=</span> <span class="n">Position</span><span class="p">.</span><span class="n">xy</span> <span class="o">/</span> <span class="n">OutSize</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="编写一个片段着色器">编写一个片段着色器</h1>
+
+<p>片段着色器会为每一个<strong>输出</strong>像素执行一次，可以读取它的输入缓冲中的任何像素。</p>
+
+<p>每一个像素都是异步计算的，因此片段着色器不能读取输出缓冲中的其他像素，因为那些像素有可能还没有被计算 <a href="https://stackoverflow.com/questions/16365385/explanation-of-dfdx/16368768#16368768">*</a>。</p>
+
+<h2 id="sampler">Sampler</h2>
+
+<p><code class="language-plaintext highlighter-rouge">texture2D</code> 函数允许你用一个<a href="#创建一个着色器程序json">采样器</a>来获取一个缓冲中的像素。例如：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">vec4</span> <span class="n">centerPixel</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">DiffuseSampler</span><span class="p">,</span> <span class="kt">vec2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>在从缓冲中获取像素时，<code class="language-plaintext highlighter-rouge">0.0, 0.0</code> 是左下角，<code class="language-plaintext highlighter-rouge">1.0 1.0</code> 是右上角。</p>
+
+<p><img src="https://i.loli.net/2019/09/28/pXHyUFJZ7gMx6C8.png" alt="image.png" /></p>
+
+<p>这和顶点着色器设置的 <code class="language-plaintext highlighter-rouge">texCoord</code> 传递变量一致，十分方便。因此对于当前正在输出的像素，你可以用以下代码来获取相应的位于输入缓冲中的像素：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">texture2D</span><span class="p">(</span><span class="n">DiffuseSampler</span><span class="p">,</span> <span class="n">texCoord</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>该函数返回一个包含 <code class="language-plaintext highlighter-rouge">red</code>（红）、<code class="language-plaintext highlighter-rouge">green</code>（绿）、<code class="language-plaintext highlighter-rouge">blue</code>（蓝）、<code class="language-plaintext highlighter-rouge">opacity</code>（不透明度）的 <code class="language-plaintext highlighter-rouge">vec4</code> —— 这四者都由一个从 0 到 1 的 <code class="language-plaintext highlighter-rouge">float</code> 表示。</p>
+
+<p><code class="language-plaintext highlighter-rouge">oneTexel</code> 代表一个像素（在输入缓冲中）的大小，所以可以用它来偏移指定数量的像素。例如：获取往上数第 3 个像素的颜色：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">texture2D</span><span class="p">(</span><span class="n">DiffuseSampler</span><span class="p">,</span> <span class="n">texCoord</span> <span class="o">+</span> <span class="kt">vec2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">oneTexel</span><span class="p">.</span><span class="n">y</span><span class="p">));</span>
+</code></pre></div></div>
+
+<p>如果想要得到以像素为单位的坐标，而不是 0-1 的小数的话，用 <code class="language-plaintext highlighter-rouge">OutSize</code> 乘即可。例如：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">OutSize</span><span class="p">;</span> <span class="c1">// == vec2(1920, 1080)</span>
+<span class="n">texCoord</span><span class="p">;</span> <span class="c1">// == vec2(0.5, 0.5)</span>
+<span class="n">OutSize</span> <span class="o">*</span> <span class="n">texCoord</span><span class="p">;</span> <span class="c1">// == vec2(960, 540)</span>
+</code></pre></div></div>
+
+<p>片段着色器应当把输出像素写入到 <code class="language-plaintext highlighter-rouge">gl_FragColor</code> 中 —— 另一个由 <code class="language-plaintext highlighter-rouge">red</code>（红）、<code class="language-plaintext highlighter-rouge">green</code>（绿）、<code class="language-plaintext highlighter-rouge">blue</code>（蓝）、<code class="language-plaintext highlighter-rouge">opacity</code>（不透明度）构成的 <code class="language-plaintext highlighter-rouge">vec4</code>。</p>
+
+<h2 id="可运作的示例-3">可运作的示例</h2>
+
+<p>以下的着色器：</p>
+<ul>
+  <li>当距离中心的距离在 0.38 至 0.4 之间时，把这个像素变成橙色</li>
+  <li>当距离中心的距离小于 0.38 时，读取放大过的（距离中心更近的）像素</li>
+  <li>当距离中心的距离大于 0.38 时，正常读取对应的输入像素</li>
+</ul>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#version 110
+</span>
+<span class="k">uniform</span> <span class="kt">sampler2D</span> <span class="n">DiffuseSampler</span><span class="p">;</span>
+
+<span class="k">varying</span> <span class="kt">vec2</span> <span class="n">texCoord</span><span class="p">;</span>
+<span class="k">varying</span> <span class="kt">vec2</span> <span class="n">oneTexel</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(){</span>
+    <span class="kt">float</span> <span class="n">distFromCenter</span> <span class="o">=</span> <span class="n">distance</span><span class="p">(</span><span class="n">texCoord</span><span class="p">,</span> <span class="kt">vec2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">));</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">distFromCenter</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">38</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 在圆圈里面</span>
+        <span class="kt">vec2</span> <span class="n">zoomedCoord</span> <span class="o">=</span> <span class="p">((</span><span class="n">texCoord</span> <span class="o">-</span> <span class="kt">vec2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">))</span> <span class="o">*</span> <span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="kt">vec2</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">);</span>
+        <span class="nb">gl_FragColor</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">DiffuseSampler</span><span class="p">,</span> <span class="n">zoomedCoord</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">distFromCenter</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">38</span> <span class="o">&amp;&amp;</span> <span class="n">distFromCenter</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 橙色边框</span>
+        <span class="nb">gl_FragColor</span> <span class="o">=</span> <span class="kt">vec4</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">);</span> 
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// 在圆圈外面，正常的像素</span>
+        <span class="nb">gl_FragColor</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">DiffuseSampler</span><span class="p">,</span> <span class="n">texCoord</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><img src="https://i.loli.net/2019/09/28/D5I9Pwc3EWtkj6U.png" alt="image.png" /></p>
+
+<h1 id="技巧与难题">技巧与难题</h1>
+
+<h2 id="发光颜色">发光颜色</h2>
+
+<p>发光的实体是一种不易被察觉的向 <code class="language-plaintext highlighter-rouge">entity_outline</code> 着色器传递数据的方式，这是因为该着色器可以读取 <code class="language-plaintext highlighter-rouge">final</code> 缓冲，并且使其不渲染可见的发光边框效果。</p>
+
+<p>一个具有发光状态效果的实体的轮廓颜色由它所处<strong>队伍的颜色</strong>决定。实体本身具有的透明度会保留。这使得片段着色器可以读取并使用 16 种不同的颜色以及 256 种不同的透明度值。</p>
+
+<p><img src="https://i.loli.net/2019/09/28/GdwBOAXL8JUfpIv.png" alt="image.png" /></p>
+
+<p>（图中添加了棋盘背景以显示出透明度）</p>
+
+<h2 id="阴影">阴影</h2>
+
+<p>由于片段着色器可以读取像素，因此可以通过像素的颜色信息来传递信息。不过请小心，有许多因素会使你的材质变暗：</p>
+
+<blockquote>
+  <h3 id="光照等级">光照等级</h3>
+
+  <p>远离光源并且不在太阳照射下的方块或实体会变暗。</p>
+
+  <p>可以用夜视效果或光源避免。</p>
+
+  <p><img src="https://i.loli.net/2019/09/28/eKDOWhgQfrw3UTS.png" alt="image.png" /></p>
+
+  <h3 id="面阴影">面阴影</h3>
+
+  <p>顶面是最亮的，其次是北面和南面，再其次是东面和西面，最暗的是底面。方块和实体都受到这一影响。</p>
+
+  <p>若想为方块禁用该阴影效果，可以在<a href="https://minecraft-zh.gamepedia.com/模型#方块模型">模型</a>中将每个元素（element）设置为 <code class="language-plaintext highlighter-rouge">"shade": false</code>。</p>
+
+  <p>不能为实体禁用！</p>
+
+  <p><img src="https://i.loli.net/2019/09/28/4PamBpFiklLwe97.png" alt="image.png" /></p>
+
+  <h3 id="环境遮挡平滑光照">环境遮挡（「平滑光照」）</h3>
+
+  <p>角落会变暗。只有方块受到这一影响。</p>
+
+  <p>若想为方块禁用该阴影效果，可以在<a href="https://minecraft-zh.gamepedia.com/模型#方块模型">模型</a>中设置 <code class="language-plaintext highlighter-rouge">"ambientocclusion":false </code>。</p>
+
+  <p><img src="https://i.loli.net/2019/09/28/EYiX1bZIRCrGA6F.png" alt="image.png" /></p>
+
+</blockquote>
+
+<h2 id="编译器优化问题">编译器优化问题</h2>
+
+<p>GLSL 编译器会优化那些<strong>它认为不会对着色器的输出有影响的代码与变量</strong>（输出指的是 <code class="language-plaintext highlighter-rouge">gl_FragColor</code>、<code class="language-plaintext highlighter-rouge">gl_Position</code> 以及其他任何传递变量）。</p>
+
+<p>GLSL 编译器找到一个没有被使用的采样器后会把它优化出去，但 Minecraft 仍然会传输同样的缓冲，这就导致了问题：所有的采样器都会读取前一个缓冲的内容。</p>
+
+<p><img src="https://i.loli.net/2019/09/28/bCTycV2xi4zDwqa.png" alt="image.png" /></p>
+
+<p>如果想避免让编译器优化出某个变量，你可以让编译器认为该变量有可能影响着色器的输出结果。例如，<code class="language-plaintext highlighter-rouge">texCoord.x</code> 永远不会是 <code class="language-plaintext highlighter-rouge">731031</code>，但编译器并不知道这一点：</p>
+
+<div class="language-glsl highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">texCoord</span><span class="p">.</span><span class="n">x</span> <span class="o">==</span> <span class="mi">731031</span><span class="p">)</span> <span class="p">{</span> <span class="nb">gl_FragColor</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">DiffuseSampler</span><span class="p">,</span> <span class="n">texCoord</span><span class="p">);</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="跨帧储存信息">跨帧储存信息</h2>
+
+<p>缓冲并不会被自动清空，因此着色器可以在不同帧之间传递信息。</p>
+
+<p>想要获取在上一帧存储的数据很简单：</p>
+<ol>
+  <li>在这一帧中，把数据写入到缓冲</li>
+  <li>在下一帧中，在<strong>新的数据被写入缓冲之前</strong>读取它</li>
+</ol>
+
+<p>为了让缓冲中的数据能跨刻存在，向一个缓冲写入的着色器程序必须要能让该缓冲中的数据不变。这就有些麻烦了，因为一个着色器程序<strong>必须</strong>要写入每一个像素，并且在这个过程中<strong>不能</strong>读取它正在写入的那个缓冲。</p>
+
+<p>一个解决方案是，首先把信息复制到另一个缓冲当中。这时着色器程序就可以读取被复制出来的那个缓冲，同时把新数据写到原有的缓冲当中了，进而能够为每个像素写入它们在上一帧的值。</p>
+
+<p><img src="https://i.loli.net/2019/09/28/4tYT5KzmVcIqvaP.png" alt="image.png" /></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"passes"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"blit"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo_copy"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+       </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"maybe_update"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"intarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"minecraft:main"</span><span class="p">,</span><span class="w">
+       </span><span class="nl">"auxtargets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BackupSampler"</span><span class="p">,</span><span class="w"> </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo_copy"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span><span class="w">
+       </span><span class="nl">"outtarget"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foo"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="着色器启用顺序">着色器启用顺序</h2>
+
+<ol>
+  <li>Minecraft 渲染普通方块和实体到 <code class="language-plaintext highlighter-rouge">minecraft:main</code></li>
+  <li>Minecraft 渲染纯色的发光实体到 <code class="language-plaintext highlighter-rouge">final</code></li>
+  <li>运行发光着色器（<code class="language-plaintext highlighter-rouge">entity_outline.json</code>），其能够访问 <code class="language-plaintext highlighter-rouge">minecraft:main</code> 与 <code class="language-plaintext highlighter-rouge">final</code> 缓冲</li>
+  <li>Minecraft 渲染其他的东西（手、水、方块实体）到 <code class="language-plaintext highlighter-rouge">minecraft:main</code></li>
+  <li>Minecraft 把 <code class="language-plaintext highlighter-rouge">final</code> 覆盖到 <code class="language-plaintext highlighter-rouge">minecraft:main</code> 上</li>
+  <li>运行实体视角着色器，其能够访问 <code class="language-plaintext highlighter-rouge">minecraft:main</code> 缓冲</li>
+</ol>
+
+<p>通过发光着色器向 <code class="language-plaintext highlighter-rouge">minecraft:main</code> 写入数据（第 3 步）似乎会破坏掉有关深度的信息，使得其他的东西（第 4 步）被渲染到 <code class="language-plaintext highlighter-rouge">minecraft:main</code> 的所有东西之上：</p>
+
+<p><img src="https://i.loli.net/2019/09/28/crdONlsXaYCnASM.png" alt="image.png" /></p>
+
+<h2 id="blit-缩放问题">Blit 缩放问题</h2>
+
+<p>原版默认的 blit 着色器程序在相同大小的缓冲间复制数据时能正常运作，但是会在缓冲大小不一样时出问题。</p>
+
+<p>这是因为顶点着色器 <code class="language-plaintext highlighter-rouge">blit.vsh</code> 没有匹配整个输出缓冲。例如，如果输出缓冲是输入缓冲一半的大小，只有一半的输出缓冲会被写入数据：</p>
+
+<p><img src="https://i.loli.net/2019/09/28/WZ8FD1H9o53JzUj.png" alt="image.png" /></p>
+
+<p>下方链接是一个 “Clone” 着色器，能够正确地拉伸输入，使其完全匹配到输出缓冲当中：</p>
+
+<p><img src="https://i.loli.net/2019/09/28/mMegGWOHfnsDip2.png" alt="image.png" /></p>
+
+<p>下载：<a href="https://drive.google.com/file/d/1LIYFv588QcbjmFHObk4sgWqCc1I5CDzq/view?usp=sharing">着色器程序 JSON 文件</a>，<a href="https://drive.google.com/file/d/1_pjORoiga0TT_KB5UrYwMCHIB9mvDmQd/view?usp=sharing">.vsh GLSL 文件</a></p>
+
+<h2 id="读取玩家输入">读取玩家输入</h2>
+
+<p>玩家的 <code class="language-plaintext highlighter-rouge">Motion</code> 不会在服务端更新，但如果玩家尝试在骑着猪或者矿车时移动的话则会更新，尽管玩家事实上并没有移动。通过让玩家骑着猪或矿车，命令能够读取玩家的 <code class="language-plaintext highlighter-rouge">Motion</code>，并（结合玩家的视角方向）确定玩家当前正按下的方向键。</p>
+
+<p><em>TODO：示例命令</em></p>
+
+<p>左键或右键的检测和平时一样（击打生物、右键使用胡萝卜钓竿或与村民交谈）。</p>
+
+<p>任何由命令获取到的信息（例如玩家目前正按着的按键）可以通过<a href="#发光颜色">一个发光实体的队伍的颜色传递给着色器</a>。</p>
+
+<p><em>TODO：Rotation</em></p>
+
+<h2 id="旁观死亡技巧">旁观死亡技巧</h2>
+
+<p>假设你在旁观一个实体时死亡（如使用 <code class="language-plaintext highlighter-rouge">/kill @s</code>），该实体的旁观着色器在你重生后依然会生效 —— 甚至你再切换到别的游戏模式都不会失效。</p>
+
+<p>在 1.15 快照中加入的 <code class="language-plaintext highlighter-rouge">/spectate</code> 命令和 <code class="language-plaintext highlighter-rouge">doImmediateRespawn</code> 游戏规则使这成为了一个能够几乎无缝应用任何实体旁观着色器的方式。</p>
+
+<p>以下函数会向玩家应用苦力怕的旁观着色器：</p>
+<pre><code class="language-mcfunction">TODO 示例命令
+</code></pre>
+
+<p>不过请注意：</p>
+<ul>
+  <li>这是个 bug，因此可能在任何时刻被修复。</li>
+  <li>某些行为，例如按 F5 进入第三人称视角，会使着色器失效。</li>
+</ul>
+
+<blockquote>
+  <p><strong>一些还没有加入本指导的新内容</strong>
+<br />
+20w22a 起允许着色器访问深度缓冲，并加入了用于「极佳」图像品质的新的着色器。请参考原版 jar 文件中的 <code class="language-plaintext highlighter-rouge">shaders/post/transparency.json</code>。
+<br />
+21w10a 加入了全新的「核心」着色器程序（由游戏直接调用，没有对应的后处理 JSON 文件），并且还引入了真正的顶点着色器。请参考原版 jar 文件中的 <code class="language-plaintext highlighter-rouge">shaders/core</code> 目录，以及 Felix 的示例数据包：https://gist.github.com/felixjones/d5bec1ab0c83ee134fa43a142692a09b
+<br />
+方块渲染类型：https://gist.github.com/boq/4514320b590de1fbe84349d23b542b28
+<br />
+https://docs.google.com/document/d/18AhcnAI55liax72yh70njUomIzezOKshCurfdZPTKwM/edit
+<br />
+从源代码和文件引用  <br />
+<img src="https://i.loli.net/2021/03/13/A2dOGgEmR1hv5cP.png" alt="moj_import.png" /></p>
+</blockquote>
+
+<h1 id="工具和参考">工具和参考</h1>
+
+<h2 id="glsl">GLSL</h2>
+
+<p>文档：  <br />
+http://docs.gl/sl4/all</p>
+
+<p>教程：  <br />
+https://www.shadertoy.com/view/Md23DV  <br />
+https://thebookofshaders.com/</p>
+
+<p>非 Minecraft 的示例：  <br />
+https://www.shadertoy.com/</p>
+
+<h2 id="spidereye">SpiderEye</h2>
+
+<p><img src="https://i.loli.net/2019/09/28/KVNgSjClo3XJrMI.png" alt="image.png" /></p>
+
+<p>使用 GLIntercept 做的小工具，能让你查看每个缓冲的数据。</p>
+
+<p><strong>下载</strong>：https://drive.google.com/open?id=1p_FOalR0LzKmQu9negjtaVzobO9YSeiu</p>
+
+<p>v0.1：初步发布</p>
+
+<p>由于该软件的运作会操作游戏的 OpenGL32.dll 文件，<a href="https://www.virustotal.com/gui/file/ff4e4037cf7dabcb79cbfc4afa7a52bb05e2e11eabe249a3511614cd58b6420c/detection">可能会被杀软误报</a>。</p>
+
+<h2 id="着色器示例">着色器示例</h2>
+
+<p><img src="https://i.loli.net/2019/09/28/JfRG8SFdto9hVWu.png" alt="image.png" /></p>
+
+<p><a href="https://www.reddit.com/r/Minecraft/comments/b15dho/vanilla_portal_gun_in_latest_snapshot_with/">可以看过去的传送门</a></p>
+
+<p>从一个角度捕获画面并显示</p>
+
+<p><em>完整、复杂的着色器运用</em></p>
+
+<hr />
+
+<p><img src="https://i.loli.net/2019/09/28/uYLwyUVnJz8HGx9.png" alt="image.png" /></p>
+
+<p><a href="https://drive.google.com/open?id=1n-SjTRv6D7CnYXok7A4cB9sqnSw00wGS">调试文字</a></p>
+
+<p>通过着色器向屏幕上写入文字或数字</p>
+
+<p><em>用来调试着色器的工具</em></p>
+
+<hr />
+
+<p><img src="https://i.loli.net/2019/09/28/APdCim8rUMI1pTz.png" alt="image.png" /></p>
+
+<p><a href="https://www.reddit.com/r/Minecraft/comments/9hj1l3/a_screen_that_displays_what_youre_seeing_in/">屏幕方块</a></p>
+
+<p>简单的着色器，将 <code class="language-plaintext highlighter-rouge">minecraft:main</code> 缓存显示在一个方块上</p>
+
+<p><em>易于理解的着色器</em></p>
+
+<hr />
+
+<p><img src="https://i.loli.net/2021/03/13/ReCwvnhbYgDdr1f.png" alt="water-blur-refraction-example.png" /></p>
+
+<p><a href="https://drive.google.com/open?id=1WYt87rJ2GzMFCIQlsKRMemLthsIz9P9A">水体模糊/折射</a></p>
+
+<p>给水加入了模糊和折射</p>
+
+  </div><a class="u-url" href="/translation/2021/03/12/guite-to-vanilla-shader.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">spgoding.com</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">spgoding.com</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/SPGoding"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">SPGoding</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>SPGoding&#39;s personal website.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
