@@ -19,13 +19,11 @@ SPYGlass is a set of development tools for vanilla Minecraft: Java Edition data 
 
 This tool is no longer maintained. SPYGlass might be a good alternative that provides code actions to help you update your data packs.
 
-## SPX
+## ~~SPX~~
 
-[SPX][spx] is an online tool that can convert [Minecraft.net][minecraftdotnet] blog articles to [BBCode][bbcode]. [Check it out][spx].
+[SPX][spx] was an online tool that could convert [Minecraft.net][minecraftdotnet] blog articles to [BBCode][bbcode]. It also contained a list of Simplified Chinese translations contributed by Chinese players.
 
-It also contains a list of Simplified Chinese translations contributed by Chinese players. Unfortunately, the community behind it is no longer active for obvious reasons.
-
-⚠ Warning: the main interface of this tool is not in English.
+The tool was forcefully shut down for obvious reasons.
 
 # Self-Hosted Websites
 
